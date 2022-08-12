@@ -190,7 +190,6 @@ def combo_string(a, b):
     return b+a+b
 
 
-
 # Given 2 strings, return their concatenation, except omit the first char of each. The strings will be at least length 1.
 def non_start(a, b):
     return a[1:] + b[1:]
@@ -330,7 +329,15 @@ def near_ten(num):
 
 
 # We want to make a row of bricks that is goal inches long. We have a number of small bricks (1 inch each) and big bricks (5 inches each). Return True if it is possible to make the goal by choosing from the given bricks. This is a little harder than it looks and can be done without any loops. See also: Introduction to MakeBricks
-
+def make_bricks(small, big, goal):
+    if small + (big*5) < goal:
+        return False
+    elif goal % 5 <= small:
+        return True
+    elif goal % 5 == 0:
+        return True
+    else:
+        return False
 
 
 # Given 3 int values, a b c, return their sum. However, if one of the values is the same as another of the values, it does not count towards the sum.
@@ -342,6 +349,7 @@ def lone_sum(a, b, c):
             y = y - (x.count(x[i]) * x[i])
         return y
     return y
+
 
 # Given 3 int values, a b c, return their sum. However, if one of the values is 13 then it does not count towards the sum and values to its right do not count. So for example, if b is 13, then both b and c do not count.
 def lucky_sum(a, b, c):
@@ -355,6 +363,7 @@ def lucky_sum(a, b, c):
 # Given 3 int values, a b c, return their sum. However, if any of the values is a teen -- in the range 13..19 inclusive -- then that value counts as 0, except 15 and 16 do not count as a teens. Write a separate helper "def fix_teen(n):"that takes in an int value and returns that value fixed for the teen rule. In this way, you avoid repeating the teen code 3 times (i.e. "decomposition"). Define the helper below and at the same indent level as the main no_teen_sum().
 def no_teen_sum(a, b, c):
     return (fix_teen(a) + fix_teen(b) + fix_teen(c))
+
 
 def fix_teen(n):
     if n >= 13 and n <= 19:
@@ -376,12 +385,29 @@ def round10(num):
         num = num + (10 - (num%10))
     return num
 
+
 # Given three ints, a b c, return True if one of b or c is "close" (differing from a by at most 1), while the other is "far", differing from both other values by 2 or more. Note: abs(num) computes the absolute value of a number.
 def close_far(a, b, c):
     return abs(b-a) <= 1 and abs(c-a) >= 2 and abs(c-b) >= 2 or abs(c-a) <= 1 and abs(b-a) >= 2 and abs(b-c) >= 2
 
 
 # We want make a package of goal kilos of chocolate. We have small bars (1 kilo each) and big bars (5 kilos each). Return the number of small bars to use, assuming we always use big bars before small bars. Return -1 if it can't be done.
+def make_chocolate(small, big, goal):
+    x = goal % 5
+    y = goal - (big*5)
+    if x == 0:
+        if goal / 5 <= big:
+            return 0
+        elif y <= small:
+            return(y)
+        else:
+            return -1
+    elif (big*5) <= goal and y <= small:
+        return(y)
+    elif (big*5) > goal and x <= small:
+        return(x)
+    else:
+        return -1
 
 
 # Given a string, return a string where for every char in the original, there are two chars.
@@ -438,6 +464,7 @@ def xyz_there(str):
         return str.count(".xyz") != str.count("xyz")
     return str.count("xyz") > 0
 
+
 def xyz_there(str):
     return str.count(".xyz") != str.count("xyz")
 
@@ -450,9 +477,11 @@ def count_evens(nums):
             x += 1
     return x
 
+
 # Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array. Note: the built-in min(v1, v2) and max(v1, v2) functions return the smaller or larger of two values.
 def big_diff(nums):
     return max(nums) - min(nums)
+
 
 # Return the "centered" average of an array of ints, which we'll say is the mean average of the values, except ignoring the largest and smallest values in the array. If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value. Use int division to produce the final average. You may assume that the array is length 3 or more
 def centered_average(nums):
@@ -461,10 +490,35 @@ def centered_average(nums):
         return nums[len(nums)/2]
     return ((nums[len(nums)/2] + nums[(len(nums)/2)-1]) / 2)
 
+
 # Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
+def sum13(nums):
+    result = 0
+    x = nums.count(13)
+    x = x*13
+    for i in range(len(nums)-1):
+        if nums[i] == 13 and nums[i+1] != 13:
+            result = result + nums[i+1]
+    return sum(nums) - (result + x)
 
 
 # Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+def sum67(nums):
+    x = []
+    y = 0
+    for i in nums:
+        if y == 0 and i != 6:
+            x.append(i)
+            i += 1
+        elif y == 0 and i == 6:
+            y += 1
+            i += 1
+        elif y == 1 and i != 7:
+            i += 1
+        elif y == 1 and i == 7:
+            y -= 1
+            i += 1
+    return sum(x)
 
 
 # Given an array of ints, return True if the array contains a 2 next to a 2 somewhere.
