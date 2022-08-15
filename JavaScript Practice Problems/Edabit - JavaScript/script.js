@@ -1078,3 +1078,20 @@ class Player {
 		return this.name + " weighs " + this.weight + "kg"
 	}
 }
+
+
+// For each of the 6 coffee cups I buy, I get a 7th cup free. In total, I get 7 cups. Create a function that takes n cups bought and return as an integer the total number of cups I would get.
+function totalCups(n) {
+	let x = Math.floor(n / 6)
+	return x + n
+}
+
+
+// Create a function that takes a string and returns a string with spaces in between all of the characters.
+function spaceMeOut(str) {
+	let results = ""
+	for(i = 0;i < str.length;i++){
+		results = results + str[i] + " "
+	}
+	return results.trimEnd()
+}
