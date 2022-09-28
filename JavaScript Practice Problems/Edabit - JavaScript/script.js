@@ -1111,3 +1111,19 @@ function operation(num1, num2) {
 		return(null)
 	}
 }
+
+
+// Create a function that takes an array and returns the sum of all numbers in the array.
+function getSumOfItems(arr) {
+	let sum = 0
+	for(i=0;i<arr.length;i++){
+		sum += arr[i]
+	}
+	return sum
+}
+
+
+// calculates its radius and its height. Now, he wants to know from you the total volume of pizza
+function volPizza(radius, height) {
+	return Math.round(radius**2 * height * Math.PI)
+}
