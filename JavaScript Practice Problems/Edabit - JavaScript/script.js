@@ -839,7 +839,7 @@ function equalSlices(total, people, each) {
 
 
 // There is an easy way to assign to array values to the nth index by using rest parameter syntax.
-	const str = '[head, ...tail] = [1, 2, 3, 4]'
+const str1 = '[head, ...tail] = [1, 2, 3, 4]'
 
 
 // You will need to write three unfinished logic gates. Continue to write the three logic gates: AND, OR, and NOT.
@@ -1054,7 +1054,7 @@ function damage(damage, speed, time) {
 
 
 // Sometimes an object will be missing properties we are expecting. We can avoid undefined errors by using default values. Use ES6 object destructuring to add a default value of 1 to the one variable. Ignore the .toString() function (used for validation).
-const str = `({ one = 1, two } = { two : 2}).toString()`
+const str2 = `({ one = 1, two } = { two : 2}).toString()`
 
 
 //  create three functions for the class that returns the following strings: getAge() returns "name is age age" getHeight() returns "name is heightcm" getWeight() returns "name weighs weightkg"
