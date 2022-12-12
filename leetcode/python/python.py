@@ -26,3 +26,14 @@ class Solution:
             x += nums[i]
             nums[i] = x
         return nums
+
+# 2011. Final Value of Variable After Performing Operations
+class Solution:
+    def finalValueAfterOperations(self, operations):
+        x = 0
+        for i in operations:
+            if i.count("++") > 0:
+                x += 1
+            else:
+                x -=1
+        return x
