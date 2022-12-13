@@ -37,3 +37,32 @@ class Solution:
             else:
                 x -=1
         return x
+
+# 1512. Number of Good Pairs
+class Solution:
+    def numIdenticalPairs(self, nums):
+        counter = 0
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i] == nums[j]:
+                    counter += 1
+        return counter
+
+# 1672. Richest Customer Wealth
+class Solution:
+    def maximumWealth(self, accounts):
+        for i in range(len(accounts)):
+            accounts[i] = sum(accounts[i])
+        return max(accounts)
+
+# 771. Jewels and Stones
+class Solution:
+    def numJewelsInStones(self, jewels, stones):
+        jewels = [ch for ch in jewels]
+        stones = [ch for ch in stones]
+        x = 0
+        for i in range(len(jewels)):
+            for j in range(len(stones)):
+                if jewels[i] == stones[j]:
+                    x += 1
+        return x
