@@ -66,3 +66,18 @@ class Solution:
                 if jewels[i] == stones[j]:
                     x += 1
         return x
+
+# 2413. Smallest Even Multiple
+class Solution:
+    def smallestEvenMultiple(self, n):
+        if n % 2 == 0:
+            return n
+        else:
+            return 2 * n
+
+# 2114. Maximum Number of Words Found in Sentences
+class Solution:
+    def mostWordsFound(self, sentences):
+        for i in range(len(sentences)):
+            sentences[i] = (sentences[i].count(" ") + 1)
+        return max(sentences)
