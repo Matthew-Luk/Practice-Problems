@@ -81,3 +81,12 @@ class Solution:
         for i in range(len(sentences)):
             sentences[i] = (sentences[i].count(" ") + 1)
         return max(sentences)
+
+# 1920. Build Array from Permutation
+class Solution:
+    def buildArray(self, nums):
+        ans = [0] * len(nums)
+        for i in range(len(ans)):
+            ans[i] = nums[nums[i]]
+        print(ans)
+        return ans
