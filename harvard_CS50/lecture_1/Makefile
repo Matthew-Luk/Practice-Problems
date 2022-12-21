@@ -1,2 +1,2 @@
-meow: meow.c
-	clang -o meow -lcs50 meow.c
+calculator: calculator.c
+	clang -o calculator -lcs50 calculator.c
