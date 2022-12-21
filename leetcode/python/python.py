@@ -90,3 +90,16 @@ class Solution:
             ans[i] = nums[nums[i]]
         print(ans)
         return ans
+
+# 1431. Kids With the Greatest Number of Candies
+class Solution:
+    def kidsWithCandies(self, candies, extraCandies):
+        x = max(candies)
+        print (f"The max is: {x}")
+        for i in range(len(candies)):
+            if candies[i] + extraCandies >= x:
+                candies[i] = True
+            else:
+                candies[i] = False
+        print(f"This is the print statement: {candies}")
+        return(candies)
