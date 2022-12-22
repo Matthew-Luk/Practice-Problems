@@ -103,3 +103,12 @@ class Solution:
                 candies[i] = False
         print(f"This is the print statement: {candies}")
         return(candies)
+
+# 1281. Subtract the Product and Sum of Digits of an Integer
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        n = [int(d) for d in str(n)]
+        product = 1
+        for i in range(len(n)):
+            product *= n[i]
+        return product - sum(n)
