@@ -112,3 +112,15 @@ class Solution:
         for i in range(len(n)):
             product *= n[i]
         return product - sum(n)
+
+# 1365. How Many Numbers Are Smaller Than the Current Number
+class Solution:
+    def smallerNumbersThanCurrent(self, nums):
+        y = []
+        for i in range(len(nums)):
+            x = 0
+            for j in range(len(nums)):
+                if nums[j] < nums[i]:
+                    x += 1
+            y.append(x)
+        return y
