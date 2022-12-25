@@ -124,3 +124,14 @@ class Solution:
                     x += 1
             y.append(x)
         return y
+
+# 1662. Check If Two String Arrays are Equivalent
+class Solution:
+    def arrayStringsAreEqual(self, word1, word2):
+        x = ""
+        y = ""
+        for i in range(len(word1)):
+            x += word1[i]
+        for i in range(len(word2)):
+            y += word2[i]
+        return x == y
