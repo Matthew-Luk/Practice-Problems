@@ -135,3 +135,13 @@ class Solution:
         for i in range(len(word2)):
             y += word2[i]
         return x == y
+
+# 2236. Root Equals Sum of Children
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def checkTree(self, root):
+        return(root.val == root.left.val + root.right.val)
