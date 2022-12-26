@@ -145,3 +145,10 @@ class TreeNode:
 class Solution:
     def checkTree(self, root):
         return(root.val == root.left.val + root.right.val)
+
+# 1678. Goal Parser Interpretation
+class Solution:
+    def interpret(self, command):
+        command = command.replace("()","o")
+        command = command.replace("(al)","al")
+        return command
