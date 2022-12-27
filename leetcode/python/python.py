@@ -152,3 +152,14 @@ class Solution:
         command = command.replace("()","o")
         command = command.replace("(al)","al")
         return command
+
+# 1470. Shuffle the Array
+class Solution:
+    def shuffle(self, nums, n):
+        nums2 = nums[0:n]
+        nums3 = nums[n:]
+        x = []
+        for i in range(len(nums2)):
+            x.append(nums2[i])
+            x.append(nums3[i])
+        return x
