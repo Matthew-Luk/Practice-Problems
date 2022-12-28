@@ -1,2 +1,2 @@
-hello: hello.c
-	clang -o hello -lcs50 hello.c
+scores: scores.c
+	clang -o scores -lcs50 scores.c
