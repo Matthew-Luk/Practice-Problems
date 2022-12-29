@@ -163,3 +163,11 @@ class Solution:
             x.append(nums2[i])
             x.append(nums3[i])
         return x
+
+# 1389. Create Target Array in the Given Order
+class Solution:
+    def createTargetArray(self, nums, index):
+        target = []
+        for i in range(len(nums)):
+            target.insert(index[i],nums[i])
+        return target
