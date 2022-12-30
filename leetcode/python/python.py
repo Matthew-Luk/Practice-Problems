@@ -171,3 +171,12 @@ class Solution:
         for i in range(len(nums)):
             target.insert(index[i],nums[i])
         return target
+
+# 1832. Check if the Sentence Is Pangram
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        for i in alphabet:
+            if i not in sentence.lower():
+                return False
+        return True
