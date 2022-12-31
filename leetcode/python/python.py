@@ -195,3 +195,30 @@ class Solution:
                 print(items[i][0])
                 x += 1
         return x
+
+# 2160. Minimum Sum of Four Digit Number After Splitting Digits
+class Solution:
+    def minimumSum(self, num: int) -> int:
+        new1 = []
+        new2 = []
+        num = [int(x) for x in str(num)]
+        num.sort()
+        new1.append(num[0])
+        new2.append(num[1])
+        num.pop(0)
+        num.pop(0)
+        if new1[0] >= new2[0]:
+            new2.append(num[0])
+            new1.append(num[1])
+        else:
+            new1.append(num[0])
+            new2.append(num[1])
+        num.pop(0)
+        num.pop(0)
+        new1 = [str(x) for x in new1]
+        new2 = [str(x) for x in new2]
+        new1 = "".join(new1)
+        new2 = "".join(new2)
+        print(new1)
+        print(new2)
+        return (int(new1) + int(new2))
