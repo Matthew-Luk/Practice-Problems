@@ -180,3 +180,18 @@ class Solution:
             if i not in sentence.lower():
                 return False
         return True
+
+# 1773. Count Items Matching a Rule
+class Solution:
+    def countMatches(self, items, ruleKey, ruleValue):
+        x = 0
+        y = 0
+        if ruleKey == "color":
+            y = 1
+        elif ruleKey == "name":
+            y = 2
+        for i in range(len(items)):
+            if items[i][y] == ruleValue:
+                print(items[i][0])
+                x += 1
+        return x
