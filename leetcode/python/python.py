@@ -222,3 +222,13 @@ class Solution:
         print(new1)
         print(new2)
         return (int(new1) + int(new2))
+
+# 1859. Sorting the Sentence
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        s = s.split(" ")
+        x = [""] * len(s)
+        for word in s:
+            index = word[-1]
+            x[(int(index)-1)] = word[:-1]
+        return " ".join(x)
