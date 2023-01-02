@@ -232,3 +232,11 @@ class Solution:
             index = word[-1]
             x[(int(index)-1)] = word[:-1]
         return " ".join(x)
+
+# 1528. Shuffle String
+class Solution:
+    def restoreString(self, s, indices):
+        x = [""] * len(s)
+        for i in range(len(s)):
+            x[indices[i]] = s[i]
+        return "".join(x)
