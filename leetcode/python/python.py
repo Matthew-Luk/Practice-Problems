@@ -240,3 +240,9 @@ class Solution:
         for i in range(len(s)):
             x[indices[i]] = s[i]
         return "".join(x)
+
+# 1816. Truncate Sentence
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        s = s.split(" ")
+        return " ".join(s[:k])
