@@ -246,3 +246,13 @@ class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         s = s.split(" ")
         return " ".join(s[:k])
+
+# 2006. Count Number of Pairs With Absolute Difference K
+class Solution:
+    def countKDifference(self, nums, k):
+        x = 0
+        for i in range(len(nums)):
+            for j in range(i,len(nums)):
+                if(abs(nums[i] - nums[j]) == k):
+                    x += 1
+        return x
