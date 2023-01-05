@@ -256,3 +256,15 @@ class Solution:
                 if(abs(nums[i] - nums[j]) == k):
                     x += 1
         return x
+
+# 2315. Count Asterisks
+class Solution:
+    def countAsterisks(self, s: str) -> int:
+        count = 0
+        s = s.split("|")
+        for i in range(len(s)):
+            if i % 2 == 0:
+                for char in s[i]:
+                    if char == "*":
+                        count += 1
+        return count
