@@ -268,3 +268,18 @@ class Solution:
                     if char == "*":
                         count += 1
         return count
+
+# 1323. Maximum 69 Number
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        num2 = []
+        count = 0
+        for i in str(num):
+            if i == "9":
+                num2.append(i)
+            elif i == "6" and count == 0:
+                num2.append("9")
+                count = 1
+            else:
+                num2.append(i)
+        return int("".join(num2))
