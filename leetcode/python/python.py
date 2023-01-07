@@ -283,3 +283,12 @@ class Solution:
             else:
                 num2.append(i)
         return int("".join(num2))
+
+# 709. To Lower Case
+class Solution:
+    def toLowerCase(self, s: str) -> str:
+        s = [char for char in s]
+        for i in range(len(s)):
+            if s[i].isupper():
+                s[i] = s[i].lower()
+        return "".join(s)
