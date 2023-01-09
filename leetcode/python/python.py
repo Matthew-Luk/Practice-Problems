@@ -292,3 +292,14 @@ class Solution:
             if s[i].isupper():
                 s[i] = s[i].lower()
         return "".join(s)
+
+# 557. Reverse Words in a String III
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s = s.split(" ")
+        newWord = []
+        for i in range(len(s)):
+            for j in range(len(s[i])-1,-1,-1):
+                newWord.append(s[i][j])
+            newWord.append(" ")
+        return "".join(newWord[:-1])
