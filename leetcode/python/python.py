@@ -303,3 +303,15 @@ class Solution:
                 newWord.append(s[i][j])
             newWord.append(" ")
         return "".join(newWord[:-1])
+
+# 1684. Count the Number of Consistent Strings
+class Solution:
+    def countConsistentStrings(self, allowed, words):
+        count = len(words)
+        cache = set(allowed)
+        for i in range(len(words)):
+            for char in range(len(words[i])):
+                if words[i][char] not in cache:
+                    count -= 1
+                    break
+        return count
