@@ -315,3 +315,17 @@ class Solution:
                     count -= 1
                     break
         return count
+
+# 832. Flipping an Image
+class Solution:
+    def flipAndInvertImage(self, image):
+        newArray = []
+        for i in range(len(image)):
+            temp = []
+            for j in range(len(image[i])-1,-1,-1):
+                if image[i][j] == 1:
+                    temp.append(0)
+                else:
+                    temp.append(1)
+            newArray.append(temp)
+        return(newArray)
