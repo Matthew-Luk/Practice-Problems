@@ -329,3 +329,9 @@ class Solution:
                     temp.append(1)
             newArray.append(temp)
         return(newArray)
+
+# 1913. Maximum Product Difference Between Two Pairs
+class Solution:
+    def maxProductDifference(self, nums):
+        newNums = sorted(nums)
+        return((newNums[-1] * newNums[-2]) - (newNums[0] * newNums[1]))
