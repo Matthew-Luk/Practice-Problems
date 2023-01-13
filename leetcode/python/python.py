@@ -335,3 +335,13 @@ class Solution:
     def maxProductDifference(self, nums):
         newNums = sorted(nums)
         return((newNums[-1] * newNums[-2]) - (newNums[0] * newNums[1]))
+
+# 2037. Minimum Number of Moves to Seat Everyone
+class Solution:
+    def minMovesToSeat(self, seats, students):
+        seats = sorted(seats)
+        students = sorted(students)
+        count = 0
+        for i in range(len(seats)):
+            count += abs(seats[i] - students[i])
+        return count
