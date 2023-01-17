@@ -365,3 +365,14 @@ class Solution:
             if a % i == 0 and b % i == 0:
                 count += 1
         return count
+
+# 1844. Replace All Digits with Characters
+class Solution:
+    def replaceDigits(self, s: str) -> str:
+        x = []
+        for i in range(len(s)):
+            if i % 2 != 0:
+                x.append(chr(ord(s[i-1]) + int(s[i])))
+            else:
+                x.append(s[i])
+        return "".join(x)
