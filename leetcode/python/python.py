@@ -376,3 +376,9 @@ class Solution:
             else:
                 x.append(s[i])
         return "".join(x)
+
+# 1464. Maximum Product of Two Elements in an Array
+class Solution:
+    def maxProduct(self, nums):
+        newNums = sorted(nums)
+        return (newNums[-1] - 1) * (newNums[-2] - 1)
