@@ -382,3 +382,11 @@ class Solution:
     def maxProduct(self, nums):
         newNums = sorted(nums)
         return (newNums[-1] - 1) * (newNums[-2] - 1)
+
+# 1732. Find the Highest Altitude
+class Solution:
+    def largestAltitude(self, gain):
+        x = [0]
+        for i in gain:
+            x.append(x[-1] + i)
+        return(max(x))
