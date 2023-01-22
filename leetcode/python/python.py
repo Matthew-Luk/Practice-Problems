@@ -390,3 +390,12 @@ class Solution:
         for i in gain:
             x.append(x[-1] + i)
         return(max(x))
+
+# 1295. Find Numbers with Even Number of Digits
+class Solution:
+    def findNumbers(self, nums):
+        count = 0
+        for i in range(len(nums)):
+            if len(str(nums[i])) % 2 == 0:
+                count += 1
+        return count
