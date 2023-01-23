@@ -399,3 +399,15 @@ class Solution:
             if len(str(nums[i])) % 2 == 0:
                 count += 1
         return count
+
+# 1313. Decompress Run-Length Encoded List
+class Solution:
+    def decompressRLElist(self, nums):
+        results = []
+        for i in range(len(nums)):
+            if i % 2 != 0:
+                count = nums[i-1]
+                while(count > 0):
+                    results.append(nums[i])
+                    count -= 1
+        return(results)
