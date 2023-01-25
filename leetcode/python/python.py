@@ -424,3 +424,16 @@ class Solution:
                 num -= 1
                 count += 1
         return count
+
+# 2194. Cells in a Range on an Excel Sheet
+class Solution:
+    def cellsInRange(self, s):
+        results = []
+        s = s.split(":")
+        for i in range(ord(s[0][0]),ord(s[1][0])+1):
+            for j in range(ord(s[0][1]),ord(s[1][1])+1):
+                temp = []
+                temp.append(chr(i))
+                temp.append(chr(j))
+                results.append("".join(temp))
+        return(results)
