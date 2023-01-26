@@ -437,3 +437,14 @@ class Solution:
                 temp.append(chr(j))
                 results.append("".join(temp))
         return(results)
+
+# 2185. Counting Words With a Given Prefix
+class Solution:
+    def prefixCount(self, words, pref):
+        count = 0
+        length = len(pref)
+        print(length)
+        for i in words:
+            if i[:length] == pref:
+                count += 1
+        return count
