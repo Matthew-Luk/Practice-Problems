@@ -448,3 +448,18 @@ class Solution:
             if i[:length] == pref:
                 count += 1
         return count
+
+# 2000. Reverse Prefix of Word
+class Solution:
+    def reversePrefix(self, word: str, ch: str) -> str:
+        index = 0
+        results = []
+        for i in range(len(word)):
+            if word[i] == ch:
+                index = i
+                break
+        pref = (word[:index+1])
+        for i in range(len(pref)-1,-1,-1):
+            results.append(pref[i])
+        results.append(word[index+1:])
+        return("".join(results))
