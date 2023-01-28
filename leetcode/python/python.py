@@ -463,3 +463,13 @@ class Solution:
             results.append(pref[i])
         results.append(word[index+1:])
         return("".join(results))
+
+# 724. Find Pivot Index
+class Solution:
+    def pivotIndex(self, nums) -> int:
+        count = 0
+        for i in range(len(nums)):
+            count += nums[i]
+            if count == sum(nums[i:]):
+                return i
+        return -1
