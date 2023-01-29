@@ -473,3 +473,8 @@ class Solution:
             if count == sum(nums[i:]):
                 return i
         return -1
+
+# 217. Contains Duplicate
+class Solution:
+    def containsDuplicate(self, nums) -> bool:
+        return len(nums) != len(set(nums))
