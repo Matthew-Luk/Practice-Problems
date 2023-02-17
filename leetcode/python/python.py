@@ -478,3 +478,11 @@ class Solution:
 class Solution:
     def containsDuplicate(self, nums) -> bool:
         return len(nums) != len(set(nums))
+
+# 704. Binary Search
+class Solution:
+    def search(self, nums, target: int) -> int:
+        for i in range(len(nums)):
+            if target == nums[i]:
+                return i
+        return -1
