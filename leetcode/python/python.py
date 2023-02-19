@@ -491,3 +491,10 @@ class Solution:
 class Solution:
     def sortedSquares(self, nums):
         return sorted([i * i for i in nums])
+
+# 283. Move Zeroes
+class Solution:
+    def moveZeroes(self, nums) -> None:
+        for i in range(nums.count(0)):
+            nums.remove(0)
+            nums.append(0)
