@@ -498,3 +498,8 @@ class Solution:
         for i in range(nums.count(0)):
             nums.remove(0)
             nums.append(0)
+
+# 344. Reverse String
+class Solution:
+    def reverseString(self, s) -> None:
+        s.reverse()
