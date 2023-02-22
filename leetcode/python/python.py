@@ -503,3 +503,14 @@ class Solution:
 class Solution:
     def reverseString(self, s) -> None:
         s.reverse()
+
+# 1. Two Sum
+class Solution:
+    def twoSum(self, nums, target: int):
+        result = []
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i] + nums[j] == target:
+                    result.append(i)
+                    result.append(j)
+        return result
