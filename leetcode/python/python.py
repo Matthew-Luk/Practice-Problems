@@ -524,3 +524,17 @@ class Solution:
             if num % x[i] == 0:
                 count += 1
         return count
+
+# 1688. Count of Matches in Tournament
+class Solution:
+    def numberOfMatches(self, n: int) -> int:
+        count = 0
+        while(n>1):
+            if n % 2 == 0:
+                n = n/2
+                count += n
+            else:
+                n = n//2
+                count += 1
+                count += n
+        return int(count)
