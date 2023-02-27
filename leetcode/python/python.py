@@ -551,3 +551,12 @@ class Solution:
                 nums[i] = [int(i) for i in str(nums[i])]
                 digit += (sum(nums[i]))
         return abs(element-digit)
+
+# 1979. Find Greatest Common Divisor of Array
+class Solution:
+    def findGCD(self, nums) -> int:
+        smallest = min(nums)
+        largest = max(nums)
+        for i in range(largest,0,-1):
+            if largest % i == 0 and smallest % i == 0:
+                return i
