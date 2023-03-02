@@ -582,3 +582,12 @@ class Solution:
         for i in range(0,len(array),2):
             result += array[i]
         return result
+
+# 1941. Check if All Characters Have Equal Number of Occurrences
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+        results = []
+        for i in range(len(s)):
+            results.append(s.count(s[i]))
+        print(results)
+        return len(set(results)) == 1
