@@ -1,9 +1,14 @@
-# Question 3 - Finding a number in an array
-def findNumber(array, number):
-    for i in array:
-        if i == number:
-            print(True)
+# Question 3 - How to find maximum product of two integers in the array where all elements are positive
+list = [1,20,30,44,5,56,57,8,9,10,31,12,13,14,35,16,27,58,19,21]
 
+def maxProduct(array):
+    answer = 0
+    for i in range(len(array)):
+        for j in range(i+1, len(array)):
+           if array[i] * array[j] > answer:
+                answer = array[i] * array[j]
+                pairs = str(array[i]) + "," + str(array[j])
+    print(pairs)
+    print(answer)
 
-array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-findNumber(array,15)
+maxProduct(list)
