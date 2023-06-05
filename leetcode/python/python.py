@@ -1,3 +1,5 @@
+from typing import List, Optional
+
 # 1929. Concatenation of Array
 class Solution:
     def getConcatenation(self, nums):
@@ -481,11 +483,18 @@ class Solution:
 
 # 704. Binary Search
 class Solution:
-    def search(self, nums, target: int) -> int:
-        for i in range(len(nums)):
-            if target == nums[i]:
-                return i
-        return -1
+    def search(self, nums: List[int], target: int) -> int:
+        temp = nums
+        while len(temp) != 0:
+            mid = len(temp)//2
+            if len(temp) == 1 and temp[0] != target:
+                return -1
+            if target == temp[mid]:
+                return nums.index(temp[mid])
+            elif target > temp[mid]:
+                temp = temp[mid:]
+            elif target < temp[mid]:
+                temp = temp[:mid]
 
 # 977. Squares of a Sorted Array
 class Solution:
