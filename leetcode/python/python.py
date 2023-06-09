@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, ListNode
 
 # 1929. Concatenation of Array
 class Solution:
@@ -644,3 +644,11 @@ class Solution:
                 results.append(word2[i])
             results.append(word2[len(word1):])
         return("".join(results))
+
+# 1720. Decode XORed Array
+class Solution:
+    def decode(self, encoded, first: int):
+        result = [first] * (len(encoded)+1)
+        for i in range(len(encoded)):
+            result[i+1] = encoded[i] ^ result[i]
+        return result
