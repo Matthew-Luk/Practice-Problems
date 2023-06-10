@@ -652,3 +652,19 @@ class Solution:
         for i in range(len(encoded)):
             result[i+1] = encoded[i] ^ result[i]
         return result
+
+# 2500. Delete Greatest Value in Each Row
+class Solution:
+    def deleteGreatestValue(self, grid) -> int:
+        rows, cols = len(grid), len(grid[0])
+        print(rows)
+        print(cols)
+        result = 0
+        for i in range(rows):
+            grid[i] = sorted(grid[i])[::-1]
+        for j in range(cols):
+            temp = []
+            for i in range(rows):
+                temp.append(grid[i][j])
+            result += max(temp)
+        return result
