@@ -495,3 +495,8 @@ class Solution:
             else:
                 high = mid - 1
         return -1
+
+# 977. Squares of a Sorted Array
+class Solution:
+    def sortedSquares(self, nums):
+        return sorted([i * i for i in nums])
