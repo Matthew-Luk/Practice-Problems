@@ -530,3 +530,13 @@ class Solution:
                     result.append(i)
                     result.append(j)
         return result
+
+# 2520. Count the Digits That Divide a Number
+class Solution:
+    def countDigits(self, num: int) -> int:
+        count = 0
+        x = [int(i) for i in str(num)]
+        for i in range(len(x)):
+            if num % x[i] == 0:
+                count += 1
+        return count
