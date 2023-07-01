@@ -554,3 +554,16 @@ class Solution:
                 count += 1
                 count += n
         return int(count)
+
+# 2535. Difference Between Element Sum and Digit Sum of an Array
+class Solution:
+    def differenceOfSum(self, nums) -> int:
+        element = sum(nums)
+        digit = 0
+        for i in range(len(nums)):
+            if nums[i] < 10:
+                digit += nums[i]
+            else:
+                nums[i] = [int(i) for i in str(nums[i])]
+                digit += (sum(nums[i]))
+        return abs(element-digit)
