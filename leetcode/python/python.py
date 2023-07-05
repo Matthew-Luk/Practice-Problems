@@ -589,3 +589,12 @@ class Solution:
         for i in range(largest,0,-1):
             if largest % i == 0 and smallest % i == 0:
                 return i
+
+# 561. Array Partition
+class Solution:
+    def arrayPairSum(self, nums) -> int:
+        array = sorted(nums)
+        result = 0
+        for i in range(0,len(array),2):
+            result += array[i]
+        return result
