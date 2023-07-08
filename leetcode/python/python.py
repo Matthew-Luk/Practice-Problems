@@ -1,4 +1,5 @@
 from typing import List, Optional, ListNode
+import math
 
 # 1929. Concatenation of Array
 class Solution:
@@ -607,3 +608,14 @@ class Solution:
             results.append(s.count(s[i]))
         print(results)
         return len(set(results)) == 1
+
+# 1748. Sum of Unique Elements
+class Solution:
+    def sumOfUnique(self, nums) -> int:
+        results = 0
+        for i in range(len(nums)):
+            if nums.count(nums[i]) > 1:
+                i += 1
+            else:
+                results += nums[i]
+        return results
