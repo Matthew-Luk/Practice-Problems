@@ -619,3 +619,13 @@ class Solution:
             else:
                 results += nums[i]
         return results
+
+# 2089. Find Target Indices After Sorting Array
+class Solution:
+    def targetIndices(self, nums, target: int):
+        array = sorted(nums)
+        results = []
+        for i in range(len(array)):
+            if array[i] == target:
+                results.append(i)
+        return results
