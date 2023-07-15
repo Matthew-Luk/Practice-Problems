@@ -1,5 +1,5 @@
 from typing import List, Optional, ListNode
-import math
+import Math
 
 # 1929. Concatenation of Array
 class Solution:
@@ -629,3 +629,19 @@ class Solution:
             if array[i] == target:
                 results.append(i)
         return results
+
+# 1768. Merge Strings Alternately
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        results = []
+        if len(word1) >= len(word2):
+            for i in range(len(word2)):
+                results.append(word1[i])
+                results.append(word2[i])
+            results.append(word1[len(word2):])
+        elif len(word2) > len(word1):
+            for i in range(len(word1)):
+                results.append(word1[i])
+                results.append(word2[i])
+            results.append(word2[len(word1):])
+        return("".join(results))
