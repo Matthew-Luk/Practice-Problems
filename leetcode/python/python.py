@@ -669,3 +669,13 @@ class Solution:
                 temp.append(grid[i][j])
             result += max(temp)
         return result
+
+# 2574. Left and Right Sum Differences
+class Solution:
+    def leftRigthDifference(self, nums):
+        answer = []
+        for i in range(len(nums)):
+            right = sum(nums[i+1:])
+            left = sum(nums[:i])
+            answer.append(abs(left - right))
+        return answer
