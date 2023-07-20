@@ -690,3 +690,12 @@ class Solution:
                     if nums[j] - nums[i] == diff and nums[k] - nums[j] == diff:
                         answer.append([i,j,k])
         return len(answer)
+
+# 2485. Find the Pivot Integer
+class Solution:
+    def pivotInteger(self, n):
+        newList = list(range(1,n+1))
+        for i in range(len(newList)):
+            if sum(newList[:i+1]) == sum(newList[i:]):
+                return newList[i]
+        return -1
