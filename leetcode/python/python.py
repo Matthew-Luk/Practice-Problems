@@ -699,3 +699,13 @@ class Solution:
             if sum(newList[:i+1]) == sum(newList[i:]):
                 return newList[i]
         return -1
+
+# 2418. Sort the People
+class Solution:
+    def sortPeople(self, names, heights):
+        answer = []
+        newheights = sorted(heights,reverse = True)
+        for i in range(len(newheights)):
+            newheights[i] = heights.index(newheights[i])
+            answer.append(names[newheights[i]])
+        return answer
