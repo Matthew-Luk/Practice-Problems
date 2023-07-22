@@ -729,3 +729,19 @@ class ParkingSystem:
             self.small -= 1
             return True
         return False
+
+# 876. Middle of the Linked List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head):
+        result = []
+        runner = head
+        while runner != None:
+            result.append(runner)
+            runner = runner.next
+        return result[(len(result)//2)]
+
