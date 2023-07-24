@@ -167,6 +167,14 @@ class Solution:
             x.append(nums3[i])
         return x
 
+class Solution:
+    def shuffle(self, nums, n):
+        answer = []
+        for i in range(n):
+            answer.append(nums[i])
+            answer.append(nums[i+n])
+        return answer
+
 # 1389. Create Target Array in the Given Order
 class Solution:
     def createTargetArray(self, nums, index):
@@ -745,3 +753,33 @@ class Solution:
             runner = runner.next
         return result[(len(result)//2)]
 
+
+# 1290. Convert Binary Number in a Linked List to Integer
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def getDecimalValue(self, head) -> int:
+        runner = head
+        result = []
+        while runner != None:
+            result.append(str(runner.val))
+            runner = runner.next
+        temp = "".join(result)
+        return int(temp, 2)
+
+class Solution:
+    def getDecimalValue(self, head) -> int:
+        runner = head
+        result = []
+        while runner != None:
+            result.append(runner.val)
+            runner = runner.next
+        # how to convert bits to integer count right to left
+        # 1*2**0 + 0*2**1 + 1*2**2
+        result.reverse()
+        for i in range(len(result)):
+            result[i] = result[i] * 2 ** i
+        return sum(result)
