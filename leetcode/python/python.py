@@ -1,4 +1,5 @@
-from typing import List, Optional, ListNode
+from typing import List, Optional, ListNode, Node
+from collections import defaultdict
 import Math
 
 # 1929. Concatenation of Array
@@ -813,3 +814,21 @@ class Solution:
         else:
             return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
         
+
+# 206. Reverse Linked List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head):
+        prev = None
+        runner = head
+        while runner != None:
+            next = runner.next
+            runner.next = prev
+            prev = runner
+            runner = next
+        head = prev
+        return head
