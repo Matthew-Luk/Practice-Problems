@@ -832,3 +832,28 @@ class Solution:
             runner = next
         head = prev
         return head
+
+# 19. Remove Nth Node From End of List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head, n: int):
+        length = 0
+        runner = head
+        while runner != None:
+            length += 1
+            runner = runner.next
+        if length == n:
+            head = head.next
+        else:
+            runner = head
+            index = 0
+            length = length - n
+            while index < length - 1:
+                index += 1
+                runner = runner.next
+            runner.next = runner.next.next
+        return head
