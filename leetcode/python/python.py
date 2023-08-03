@@ -866,3 +866,22 @@ class Solution:
             if i % 3 == 0 or i % 5 == 0 or i % 7 == 0:
                 answer.append(i)
         return sum(answer)
+
+# 2656. Maximum Sum With Exactly K Elements
+class Solution:
+    def maximizeSum(self, nums, k) -> int:
+        answer = []
+        x = max(nums)
+        for i in range(k):
+            if i != 0:
+                x += 1
+            answer.append(x)
+        return sum(answer)
+
+class Solution:
+    def maximizeSum(self, nums, k) -> int:
+        if k == 0:
+            return 0
+        else:
+            k -= 1
+            return max(nums) + self.maximizeSum(nums, k) + k
