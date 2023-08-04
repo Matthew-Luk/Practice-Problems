@@ -885,3 +885,8 @@ class Solution:
         else:
             k -= 1
             return max(nums) + self.maximizeSum(nums, k) + k
+
+# 2651. Calculate Delayed Arrival Time
+class Solution:
+    def findDelayedArrivalTime(self, arrivalTime: int, delayedTime: int) -> int:
+        return (arrivalTime + delayedTime) % 24
