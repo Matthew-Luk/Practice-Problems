@@ -924,3 +924,22 @@ class Solution:
         elif val < root.val:
             return self.searchBST(root.left, val)
         return self.searchBST(root.right, val)
+
+# 2215. Find the Difference of Two Arrays
+class Solution:
+    def findDifference(self, nums1, nums2):
+        answer = []
+        temp = []
+        set1 = set()
+        for i in nums1:
+            if i not in nums2 and i not in set1:
+                    temp.append(i)
+            set1.add(i)
+        answer.append(temp)
+        temp = []
+        for i in nums2:
+            if i not in nums1 and i not in set1:
+                temp.append(i)
+            set1.add(i)
+        answer.append(temp)
+        return answer
