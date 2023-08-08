@@ -943,3 +943,25 @@ class Solution:
             set1.add(i)
         answer.append(temp)
         return answer
+
+# 83. Remove Duplicates from Sorted List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head):
+        if head == None:
+            return head
+        duplicates = {head.val}
+        slow = head
+        fast = head.next
+        while fast != None:
+            if fast.val not in duplicates:
+                duplicates.add(fast.val)
+                slow = slow.next
+            else:
+                slow.next = fast.next
+            fast = fast.next
+        return head
