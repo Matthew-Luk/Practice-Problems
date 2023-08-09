@@ -965,3 +965,12 @@ class Solution:
                 slow.next = fast.next
             fast = fast.next
         return head
+
+# 2678. Number of Senior Citizens
+class Solution:
+    def countSeniors(self, details):
+        answer = 0
+        for i in range(len(details)):
+            if int(details[i][11:13]) > 60:
+                answer += 1
+        return answer
