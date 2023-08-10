@@ -974,3 +974,14 @@ class Solution:
             if int(details[i][11:13]) > 60:
                 answer += 1
         return answer
+
+# 2553. Separate the Digits in an Array
+class Solution:
+    def separateDigits(self, nums):
+        answer = []
+        for i in range(len(nums)):
+            nums[i] = str(nums[i])
+        for i in range(len(nums)):
+            for j in range(len(nums[i])):
+                answer.append(int(nums[i][j]))
+        return answer
