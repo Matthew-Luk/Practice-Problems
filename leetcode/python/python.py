@@ -985,3 +985,16 @@ class Solution:
             for j in range(len(nums[i])):
                 answer.append(int(nums[i][j]))
         return answer
+
+# 1704. Determine if String Halves Are Alike
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        set1 = set(["a","e","i","o","u","A","E","I","O","U"])
+        a, b = s[:len(s)//2], s[len(s)//2:]
+        count = 0
+        for i in range(len(a)):
+            if a[i] in set1:
+                count += 1
+            if b[i] in set1:
+                count -= 1
+        return count == 0
