@@ -998,3 +998,13 @@ class Solution:
             if b[i] in set1:
                 count -= 1
         return count == 0
+
+# 2586. Count the Number of Vowel Strings in Range
+class Solution:
+    def vowelStrings(self, words, left, right):
+        answer = 0
+        set1 = set(["a","e","i","o","u","A","E","I","O","U"])
+        for i in range(left, right+1):
+            if words[i][0] in set1 and words[i][-1] in set1:
+                answer += 1
+        return answer
