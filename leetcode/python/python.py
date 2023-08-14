@@ -1008,3 +1008,25 @@ class Solution:
             if words[i][0] in set1 and words[i][-1] in set1:
                 answer += 1
         return answer
+
+# 2278. Percentage of Letter in String
+import math
+class Solution:
+    def percentageLetter(self, s: str, letter: str) -> int:
+        count = 0
+        for i in range(len(s)):
+            if s[i] == letter:
+                count += 1
+        if count == 0:
+            return count
+        return math.floor(count / len(s) * 100)
+
+class Solution:
+    def percentageLetter(self, s: str, letter: str) -> int:
+        count = 0
+        for i in range(len(s)):
+            if s[i] == letter:
+                count += 1
+        if count == 0:
+            return count
+        return int(count / len(s) * 100)
