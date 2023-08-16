@@ -1043,3 +1043,17 @@ class Solution:
                 num2 = num2 - num1
                 answer += 1
         return answer
+
+# 1880. Check if Word Equals Summation of Two Words
+class Solution:
+    def helper(self, word):
+        answer = []
+        for i in range(len(word)):
+            answer.append(str(ord(word[i])-97))
+        return(int("".join(answer)))
+
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        first = self.helper(firstWord)
+        second = self.helper(secondWord)
+        target = self.helper(targetWord)
+        return first + second == target
