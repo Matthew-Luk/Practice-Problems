@@ -1057,3 +1057,14 @@ class Solution:
         second = self.helper(secondWord)
         target = self.helper(targetWord)
         return first + second == target
+
+# 2053. Kth Distinct String in an Array
+class Solution:
+    def kthDistinct(self, arr, k: int) -> str:
+        count = 0
+        for i in range(len(arr)):
+            if arr.count(arr[i]) == 1:
+                count += 1
+            if count == k:
+                return arr[i]
+        return ""
