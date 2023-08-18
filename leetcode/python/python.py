@@ -1068,3 +1068,13 @@ class Solution:
             if count == k:
                 return arr[i]
         return ""
+
+# 2496. Maximum Value of a String in an Array
+class Solution:
+    def maximumValue(self, strs) -> int:
+        for i in range(len(strs)):
+            try:
+                strs[i] = int(strs[i])
+            except:
+                strs[i] = len(strs[i])
+        return max(strs)
