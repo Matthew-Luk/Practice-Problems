@@ -1078,3 +1078,11 @@ class Solution:
             except:
                 strs[i] = len(strs[i])
         return max(strs)
+
+# 2057. Smallest Index With Equal Value
+class Solution:
+    def smallestEqual(self, nums) -> int:
+        for i in range(len(nums)):
+            if i % 10 == nums[i]:
+                return i
+        return -1
