@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Roboto;
+}
+
+body{
+    background-color: #36384d;
+    font-size: 1.6rem;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    padding: 2rem;
+    margin: auto;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-left{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3.2rem;
+}
+
+.card-left-info{
+    width: 90%;
+    padding: 2.4rem;
+}
+
+h1{
+    font-size: 5.4rem;
+    letter-spacing: 0.15rem;
+    margin-bottom: 1.6rem;
+}
+
+.bullet-header{
+    margin-bottom: 2.4rem;
+}
+
+.card-right{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.bullets{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 3.2rem;
+}
+
+.bullet{
+    display: flex;
+    align-items: center;
+}
+
+.bullet img{
+    margin-right: 1.4rem;
+}
+
+form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header{
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+form input{
+    height: 4.8rem;
+    border-radius: 0.6rem;
+    border: 1px solid #cecece;
+    cursor: pointer;
+}
+
+form input:focus{
+    outline: none;
+    border: 1px solid black;
+}
+
+#email-input{
+    padding-left: 2.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.btn{
+    height: 4.8rem;
+    border-radius: 0.6rem;
+    border: none;
+    width: 100%;
+    background-color: #232742;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, #ff537b, #fe6c41);
+    box-shadow: 0rem 0.2rem 0.5rem 0.1rem rgba(255,83,123,0.5), 0rem 0.2rem 0.5rem 0.1rem rgba(254,108,65,0.5); 
+}
+
+.error-input{
+    background-color: #ffe8e6;
+    border: 1px solid #fc6b58;
+}
+
+#error-message{
+    color: #fc6b58;
+}
+
+.success{
+    margin: auto;
+    width: 35%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    overflow: scroll;
+}
+
+.success-info{
+    padding: 4.8rem;
+}
+
+#success-img{
+    margin-bottom: 3.2rem;
+}
+
+.success-info p{
+    line-height: 2.4rem;
+    margin-bottom: 3.2rem;
+}
