@@ -39,15 +39,19 @@ body{
     margin-left: 3.2rem;
 }
 
+#card-img2{
+    display: none;
+}
+
 .card-left-info{
     width: 90%;
-    padding: 2.4rem;
+    padding: 0 2.4rem 2.4rem 2.4rem;
 }
 
 h1{
     font-size: 5.4rem;
     letter-spacing: 0.15rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
 }
 
 .bullet-header{
@@ -65,7 +69,7 @@ h1{
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    margin-bottom: 3.2rem;
+    margin-bottom: 4.8rem;
 }
 
 .bullet{
@@ -123,17 +127,17 @@ form input:focus{
 
 .btn:hover{
     cursor: pointer;
-    background-image: linear-gradient(to right, #ff537b, #fe6c41);
+    background-image: linear-gradient(to right, #ff537b, hsl(4, 100%, 67%));
     box-shadow: 0rem 0.2rem 0.5rem 0.1rem rgba(255,83,123,0.5), 0rem 0.2rem 0.5rem 0.1rem rgba(254,108,65,0.5); 
 }
 
 .error-input{
     background-color: #ffe8e6;
-    border: 1px solid #fc6b58;
+    border: 1px solid hsl(4, 100%, 67%);
 }
 
 #error-message{
-    color: #fc6b58;
+    color: hsl(4, 100%, 67%);
 }
 
 .success{
@@ -156,4 +160,83 @@ form input:focus{
 .success-info p{
     line-height: 2.4rem;
     margin-bottom: 3.2rem;
+}
+
+@media (max-width: 37.5rem) {
+    body{
+        background-color: #fff;
+    }
+
+    .card{
+        background-color: #fff;
+        border-radius: 0;
+        width: 37.5rem;
+        padding: 0;
+        height: auto;
+    }
+
+    .card-left{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-left-info{
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+    }
+
+    h1{
+        font-size: 3.8rem;
+    }
+
+    #card-img2{
+        width: 37.5rem;
+        display: flex;
+        margin-bottom: 3.2rem;
+    }
+
+    #card-img1{
+        display: none;
+    }
+
+    #email-input{
+        margin-bottom: 2.4rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .btn{
+        width: 100%;
+    }
+
+    .success{
+        height: 100vh;
+        width: 100vw;
+        background-color: #fff;
+        overflow: scroll;
+        padding: 1.6rem;
+        padding-top: 9.6rem;
+    }
+    
+    .success-info{
+        padding: 0;
+    }
+
+    #success-img{
+        margin-bottom: 0;
+    }
+
+    .success-info p{
+        line-height: 2.4rem;
+        margin-bottom: 12.8rem;
+    }
+
+    #success-img{
+        margin-bottom: 3.2rem;
+    }
 }
