@@ -1086,3 +1086,11 @@ class Solution:
             if i % 10 == nums[i]:
                 return i
         return -1
+
+# 2206. Divide Array Into Equal Pairs
+class Solution:
+    def divideArray(self, nums) -> bool:
+        for i in range(len(nums)):
+            if nums.count(nums[i]) % 2 != 0:
+                return False
+        return True
