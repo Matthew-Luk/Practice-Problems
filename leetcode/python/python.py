@@ -117,6 +117,16 @@ class Solution:
             product *= n[i]
         return product - sum(n)
 
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        sum = 0
+        product = 1
+        while n > 0:
+            product *= n%10
+            sum += n%10
+            n = n // 10
+        return product - sum
+
 # 1365. How Many Numbers Are Smaller Than the Current Number
 class Solution:
     def smallerNumbersThanCurrent(self, nums):
@@ -234,6 +244,15 @@ class Solution:
         print(new1)
         print(new2)
         return (int(new1) + int(new2))
+
+class Solution:
+    def minimumSum(self, num: int) -> int:
+        bin = []
+        while num > 0:
+            bin.append(num%10)
+            num = num // 10
+        bin = sorted(bin)
+        return (bin[0] * 10) + (bin[1] * 10) + bin[2] + bin[3]
 
 # 1859. Sorting the Sentence
 class Solution:
