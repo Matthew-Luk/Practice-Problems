@@ -1,0 +1,160 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: hsl(30, 38%, 92%);
+}
+
+.container{
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card{
+    height: 60%;
+    width: 600px;
+    margin: auto;
+    border-radius: 1rem;
+    background-color: #fff;
+    display: flex;
+    overflow: scroll;
+}
+
+.card-left{
+    width: 30rem;
+}
+
+#img1{
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    width: 30rem;
+    height: 100%;
+}
+
+#img2{
+    display: none;
+}
+
+.card-right{
+    width: 30rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.desc{
+    font-family: Montserrat;
+    color: hsl(228, 12%, 48%);
+    font-size: 1.4rem;
+    margin-bottom: 2.4rem;
+}
+
+.letter-spacing{
+    letter-spacing: 0.4rem;
+}
+
+.line-spacing{
+    line-height: 2.4rem;
+}
+
+h1{
+    font-family: Fraunces;
+    margin-bottom: 2.4rem;
+    line-height: 3.2rem;
+}
+
+.prices{
+    display: flex;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.price1{
+    font-family: Fraunces;
+    color: hsl(158, 36%, 37%);
+    font-size: 3.2rem;
+    margin-right: 1.6rem;
+}
+
+.price2{
+    font-family: Montserrat;
+    color: hsl(228, 12%, 48%);
+}
+
+.btn{
+    height: 4.8rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(158, 36%, 37%);
+    border: none;
+    border-radius: 0.6rem;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+.btn:hover{
+    background-color: #1a4031;
+    cursor: pointer;
+}
+
+#cart{
+    margin-right: 1.4rem;
+}
+
+@media (max-width: 37.5rem) {
+    .container{
+        padding: 1.5rem;
+    }
+
+    .card{
+        flex-direction: column;
+        height: 100vh;
+        width: 34.5rem;
+    }
+
+    #img1{
+        display: none;
+    }
+
+    #img2{
+        display: flex;
+        width: 37.5rem;
+        width: 36rem;
+    }
+
+    .card-right{
+        height: 100%;
+    }
+
+    h1{
+        margin-bottom: 1.6rem;
+    }
+
+    .desc{
+        margin-bottom: 1.6rem;
+    }
+
+    .prices{
+        margin-bottom: auto;
+    }
+
+    .price2{
+        font-size: 1.4rem;
+    }
+
+    .btn{
+        width: 100%;
+    }
+}
