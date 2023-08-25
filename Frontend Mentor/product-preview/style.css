@@ -74,7 +74,7 @@ h1{
 
 .prices{
     display: flex;
-    margin-bottom: auto;
+    margin-bottom: 1.6rem;
     align-items: center;
 }
 
@@ -146,15 +146,17 @@ h1{
         margin-bottom: 1.6rem;
     }
 
-    .prices{
-        margin-bottom: auto;
-    }
-
     .price2{
         font-size: 1.4rem;
     }
 
     .btn{
         width: 100%;
+    }
+}
+
+@media (min-height:50rem){
+    .prices{
+        margin-bottom: auto;
     }
 }
