@@ -1113,3 +1113,18 @@ class Solution:
             if nums.count(nums[i]) % 2 != 0:
                 return False
         return True
+
+# 2032. Two Out of Three
+class Solution:
+    def twoOutOfThree(self, nums1, nums2, nums3):
+        answer = []
+        for i in range(len(nums1)):
+            if nums2.count(nums1[i]) >= 1 or nums3.count(nums1[i]) >= 1 and nums1[i] not in answer:
+                answer.append(nums1[i])
+        for i in range(len(nums2)):
+            if nums1.count(nums2[i]) >= 1 or nums3.count(nums2[i]) >= 1 and nums2[i] not in answer:
+                answer.append(nums2[i])
+        for i in range(len(nums3)):
+            if nums1.count(nums3[i]) >= 1 or nums2.count(nums3[i]) >= 1 and nums3[i] not in answer:
+                answer.append(nums3[i])
+        return set(answer)
