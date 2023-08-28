@@ -1128,3 +1128,12 @@ class Solution:
             if nums1.count(nums3[i]) >= 1 or nums2.count(nums3[i]) >= 1 and nums3[i] not in answer:
                 answer.append(nums3[i])
         return set(answer)
+
+# 2119. A Number After a Double Reversal
+class Solution:
+    def isSameAfterReversals(self, num: int) -> bool:
+        reversed1 = str(num)
+        reversed1 = int(reversed1[::-1])
+        reversed2 = str(reversed1)
+        reversed2 = int(reversed2[::-1])
+        return reversed2 == num
