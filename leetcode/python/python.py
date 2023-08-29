@@ -1137,3 +1137,12 @@ class Solution:
         reversed2 = str(reversed1)
         reversed2 = int(reversed2[::-1])
         return reversed2 == num
+
+# 509. Fibonacci Number
+class Solution:
+    def fib(self, n: int) -> int:
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        return self.fib(n-1) + self.fib(n-2)
