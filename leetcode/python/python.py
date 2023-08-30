@@ -1146,3 +1146,23 @@ class Solution:
         elif n == 1:
             return 1
         return self.fib(n-1) + self.fib(n-2)
+
+# 338. Counting Bits
+class Solution:
+    def countBits(self, n: int):
+        answer = []
+        for i in range(n+1):
+            answer.append(bin(i)[2:].count("1"))
+        return answer
+
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        answer = []
+        for i in range(n+1):
+            temp = 0
+            while i > 0:
+                if i % 2 == 1:
+                    temp += 1
+                i = i // 2
+            answer.append(temp)
+        return answer
