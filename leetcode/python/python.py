@@ -1166,3 +1166,13 @@ class Solution:
                 i = i // 2
             answer.append(temp)
         return answer
+
+# 1051. Height Checker
+class Solution:
+    def heightChecker(self, heights) -> int:
+        expected = sorted(heights)
+        answer = 0
+        for i in range(len(heights)):
+            if heights[i] != expected[i]:
+                answer += 1
+        return answer
