@@ -1185,3 +1185,13 @@ class Solution:
             if startTime[i] <= queryTime <= endTime[i]:
                 answer += 1
         return answer
+
+# 1351. Count Negative Numbers in a Sorted Matrix
+class Solution:
+    def countNegatives(self, grid) -> int:
+        answer = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if grid[i][j] < 0:
+                    answer += 1
+        return answer
