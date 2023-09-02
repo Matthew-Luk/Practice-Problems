@@ -1176,3 +1176,12 @@ class Solution:
             if heights[i] != expected[i]:
                 answer += 1
         return answer
+
+# 1450. Number of Students Doing Homework at a Given Time
+class Solution:
+    def busyStudent(self, startTime, endTime, queryTime: int) -> int:
+        answer = 0
+        for i in range(len(endTime)):
+            if startTime[i] <= queryTime <= endTime[i]:
+                answer += 1
+        return answer
