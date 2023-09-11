@@ -1195,3 +1195,16 @@ class Solution:
                 if grid[i][j] < 0:
                     answer += 1
         return answer
+
+# 1935. Maximum Number of Words You Can Type
+class Solution:
+    def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
+        answer = []
+        brokenLetters = set(brokenLetters)
+        text = text.split(" ")
+        for i in range(len(text)):
+            for j in text[i]:
+                if j in brokenLetters:
+                    answer.append(1)
+                    break
+        return len(text) - len(answer)
