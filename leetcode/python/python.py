@@ -1208,3 +1208,14 @@ class Solution:
                     answer.append(1)
                     break
         return len(text) - len(answer)
+
+# 2124. Check if All A's Appears Before All B's
+class Solution:
+    def checkString(self, s: str) -> bool:
+        seen = False
+        for i in range(len(s)):
+            if s[i] == "b":
+                seen = True
+            if s[i] == "a" and seen == True:
+                return False
+        return True
