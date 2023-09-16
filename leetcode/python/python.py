@@ -1235,3 +1235,21 @@ class Solution:
         if n % 2 == 0:
             return ("a"*(n-1)) + "b"
         return "a"*n
+
+# 2325. Decode the Message
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        dict1 = {}
+        count = 0
+        key = key.replace(" ", "")
+        answer = []
+        for i in range(len(key)):
+            if key[i] not in dict1:
+                count += 1
+                dict1[key[i]] = count + 96
+        for i in range(len(message)):
+            if message[i] != " ":
+                answer.append(chr(dict1[message[i]]))
+            else:
+                answer.append(" ")
+        return "".join(answer)
