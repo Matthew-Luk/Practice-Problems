@@ -1253,3 +1253,20 @@ class Solution:
             else:
                 answer.append(" ")
         return "".join(answer)
+
+# 804. Unique Morse Code Words
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        key = {}
+        temp = [".-","-...","-.-.","-..",".","..-.","--.","....",
+            "..",".---","-.-",".-..","--","-.","---",".--.","--.-",
+            ".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        answer = []
+        for i in range(len(temp)):
+            key[chr(i+97)] = temp[i]
+        for i in range(len(words)):
+            temp = []
+            for j in range(len(words[i])):
+                temp.append(key[words[i][j]])
+            answer.append("".join(temp))
+        return len(set(answer))
