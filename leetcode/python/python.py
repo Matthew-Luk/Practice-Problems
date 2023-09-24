@@ -1270,3 +1270,12 @@ class Solution:
                 temp.append(key[words[i][j]])
             answer.append("".join(temp))
         return len(set(answer))
+
+# 2351. First Letter to Appear Twice
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        answer = {}
+        for i in range(len(s)):
+            answer[s[i]] = answer.get(s[i], 0) + 1
+            if answer[s[i]] == 2:
+                return s[i]
