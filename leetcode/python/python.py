@@ -1279,3 +1279,14 @@ class Solution:
             answer[s[i]] = answer.get(s[i], 0) + 1
             if answer[s[i]] == 2:
                 return s[i]
+
+# 1486. XOR Operation in an Array
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        nums = []
+        answer = 0
+        for i in range(n):
+            nums.append(start + 2 * i)
+        for i in range(len(nums)):
+            answer = answer ^ nums[i]
+        return answer
