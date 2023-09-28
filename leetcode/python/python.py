@@ -1311,3 +1311,25 @@ class Solution:
         digits.append(0)
         digits[0] = 1
         return digits
+
+# 202. Happy Number
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        set1 = set()
+        while n != 1:
+            if n in set1:
+                return False
+            set1.add(n)
+            temp = [int(x)**2 for x in str(n)]
+            n = sum(temp)
+        return True
+
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        set1 = set()
+        while n != 1:
+            if n in set1:
+                return False
+            set1.add(n)
+            n = sum([int(x)**2 for x in str(n)])
+        return True
