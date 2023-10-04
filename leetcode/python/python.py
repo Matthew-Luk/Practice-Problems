@@ -1333,3 +1333,31 @@ class Solution:
             set1.add(n)
             n = sum([int(x)**2 for x in str(n)])
         return True
+
+# 1046. Last Stone Weight
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        while len(stones) > 0:
+            stones = sorted(stones)
+            if len(stones) == 1:
+                return stones[0]
+            if stones[-1] == stones[-2]:
+                stones = stones[:-2]
+            else:
+                stones[-2] = stones[-1] - stones[-2]
+                stones = stones[:-1]
+        return 0
+
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        while len(stones) > 0:
+            stones = sorted(stones)
+            if len(stones) == 1:
+                return stones[0]
+            if stones[-1] == stones[-2]:
+                stones.pop()
+                stones.pop()
+            else:
+                stones[-2] = stones[-1] - stones[-2]
+                stones.pop()
+        return 0
