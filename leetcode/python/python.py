@@ -1361,3 +1361,28 @@ class Solution:
                 stones[-2] = stones[-1] - stones[-2]
                 stones.pop()
         return 0
+
+# 242. Valid Anagram
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        answerS = {}
+        answerT = {}
+        if len(s) != len(t):
+            return False
+        for i in range(len(s)):
+            answerS[s[i]] = answerS.get(s[i], 0) + 1
+            answerT[t[i]] = answerT.get(t[i], 0) + 1
+        return answerS == answerT
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        for i in range(len(s)):
+            if s.count(s[i]) != t.count(s[i]):
+                return False
+        return True
