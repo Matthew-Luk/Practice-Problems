@@ -1406,3 +1406,58 @@ class Solution:
         self.traversal(root.left)
         self.answer.append(root.val)
         self.traversal(root.right)
+
+# 144. Binary Tree Preorder Traversal
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        self.answer = []
+        self.traversal(root)
+        return self.answer
+
+    def traversal(self, root):
+        if root == None:
+            return
+        self.answer.append(root.val)
+        self.traversal(root.left)
+        self.traversal(root.right)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        stack = []
+        result = []
+        while root or stack:
+            while root:
+                stack.append(root)
+                result.append(root.val)
+                root = root.left
+
+            root = stack.pop()
+            root = root.right
+        return result
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        if not root:
+            return
+        stack = [root]
+        result = []
+        while stack:
+            node = stack.pop()
+            result.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return result
