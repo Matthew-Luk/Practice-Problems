@@ -1461,3 +1461,14 @@ class Solution:
             if node.left:
                 stack.append(node.left)
         return result
+
+# 1299. Replace Elements with Greatest Element on Right Side
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        while s[-1] == " ":
+            s = s[:-1]
+        s = s.split(" ")
+        count = 0
+        for i in s[-1]:
+            count += 1
+        return count
