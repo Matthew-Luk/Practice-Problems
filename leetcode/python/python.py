@@ -1472,3 +1472,19 @@ class Solution:
         for i in s[-1]:
             count += 1
         return count
+
+# 27. Remove Element
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        nums[:] = [x for x in nums if x != val]
+        return len(nums)
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = 0
+        for x in nums:
+            if x != val:
+                nums[i] = x
+                i += 1
+        print(nums)
+        return i
