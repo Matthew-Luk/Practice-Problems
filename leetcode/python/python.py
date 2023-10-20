@@ -1488,3 +1488,11 @@ class Solution:
                 i += 1
         print(nums)
         return i
+
+# 169. Majority Element
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        answer = {}
+        for i in range(len(nums)):
+            answer[nums[i]] = answer.get(nums[i], 0) + 1
+        return max(answer, key=answer.get)
