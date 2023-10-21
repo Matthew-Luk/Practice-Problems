@@ -1496,3 +1496,13 @@ class Solution:
         for i in range(len(nums)):
             answer[nums[i]] = answer.get(nums[i], 0) + 1
         return max(answer, key=answer.get)
+
+# 448. Find All Numbers Disappeared in an Array
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        answer = []
+        temp = set(list(nums))
+        for i in range(1,len(nums)+1):
+            if i not in temp:
+                answer.append(i)
+        return answer
