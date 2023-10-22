@@ -1506,3 +1506,15 @@ class Solution:
             if i not in temp:
                 answer.append(i)
         return answer
+
+# 1299. Replace Elements with Greatest Element on Right Side
+class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        temp = arr[-1]
+        for i in range(len(arr)-1,-1,-1):
+            if arr[i] > temp:
+                temp = arr[i]
+            arr[i] = temp
+        arr.append(-1)
+        arr.pop(0)
+        return arr
