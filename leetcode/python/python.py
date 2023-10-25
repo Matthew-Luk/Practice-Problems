@@ -1,6 +1,6 @@
 from typing import List, Optional, ListNode, Node
 from collections import defaultdict
-import Math
+import math
 
 # 1929. Concatenation of Array
 class Solution:
@@ -1029,7 +1029,6 @@ class Solution:
         return answer
 
 # 2278. Percentage of Letter in String
-import math
 class Solution:
     def percentageLetter(self, s: str, letter: str) -> int:
         count = 0
@@ -1518,3 +1517,19 @@ class Solution:
         arr.append(-1)
         arr.pop(0)
         return arr
+
+# 290. Word Pattern
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        answer = {}
+        words = s.split(" ")
+        if len(set(words)) != len(set(pattern)) or len(words) != len(pattern):
+            return False
+        for i in range(len(words)):
+            if words[i] not in answer:
+                answer[words[i]] = pattern[i]
+            else:
+                if answer[words[i]] != pattern[i]:
+                    return False
+        print(answer)
+        return True
