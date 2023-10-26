@@ -1533,3 +1533,20 @@ class Solution:
                     return False
         print(answer)
         return True
+
+# 496. Next Greater Element I
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        answer = []
+        for i in range(len(nums1)):
+            seen = False
+            for j in range(len(nums2)):
+                if seen == True:
+                    if nums2[j] > nums1[i]:
+                        answer.append(nums2[j])
+                        break
+                elif seen == False and nums1[i] == nums2[j]:
+                    seen = True
+            if len(answer) != i+1:
+                answer.append(-1)
+        return answer
