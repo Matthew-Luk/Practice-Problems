@@ -1557,3 +1557,30 @@ class Solution:
         if low % 2 == 1 or high % 2 == 1:
             return ((high-low) // 2) + 1
         return ((high-low) // 2)
+
+# 1572. Matrix Diagonal Sum
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        arr = []
+        result = 0
+        for i in range(len(mat)):
+            arr.append([i,i])
+            if [len(mat)-1-i,i] not in arr:
+                arr.append([len(mat)-1-i,i])
+        for i in arr:
+            result += mat[i[0]][i[1]]
+        return 
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if haystack.count(needle) == 0:
+            return -1
+        for i in range(len(haystack)):
+            if haystack[i] == needle[0]:
+                x = 0
+                for j in range(len(needle)):
+                    if needle[j] == haystack[i+j]:
+                        x += 1
+                    if x == len(needle):
+                        return i
+        return -1
