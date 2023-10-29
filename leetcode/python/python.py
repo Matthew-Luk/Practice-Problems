@@ -1584,3 +1584,19 @@ class Solution:
                     if x == len(needle):
                         return i
         return -1
+
+# 28. Find the Index of the First Occurrence in a String
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        for i in range(len(haystack)):
+            if haystack[i] == needle[0]:
+                x = 0
+                for j in range(len(needle)):
+                    try:
+                        if haystack[i+j] == needle[j]:
+                            x += 1
+                        if x == len(needle):
+                            return i
+                    except:
+                        return -1
+        return -1
