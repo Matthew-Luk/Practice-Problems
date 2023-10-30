@@ -1600,3 +1600,11 @@ class Solution:
                     except:
                         return -1
         return -1
+
+# 1822. Sign of the Product of an Array
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        product = 1
+        for i in nums:
+            product *= i
+        return 1 if product > 0 else (-1 if product < 0 else 0)
