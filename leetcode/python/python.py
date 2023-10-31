@@ -1608,3 +1608,37 @@ class Solution:
         for i in nums:
             product *= i
         return 1 if product > 0 else (-1 if product < 0 else 0)
+
+# 1189. Maximum Number of Balloons
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        map = {"b":0,"a":0,"l":0,"o":0,"n":0}
+        for i in range(len(text)):
+            if text[i] in map:
+                if text[i] == "l" or text[i] == "o":
+                    map[text[i]] += 0.5
+                else:
+                    map[text[i]] += 1
+        min = map["b"]
+        for key in map:
+            if map[key] < min:
+                min = map[key]
+        return int(min)
+
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        map = {}
+        for i in range(len(text)):
+            if text[i] in "balon":
+                if text[i] == "l" or text[i] == "o":
+                    map[text[i]] = map.get(text[i], 0) + 0.5
+                else:
+                    map[text[i]] = map.get(text[i], 0) + 1
+        if len(map) < 5:
+            return 0
+        else:
+            min = list(map.values())[0]
+            for key in map:
+                if map[key] < min:
+                    min = map[key]
+            return int(min)
