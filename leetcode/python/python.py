@@ -1650,3 +1650,17 @@ class NumArray:
         
     def sumRange(self, left: int, right: int) -> int:
         return sum(self.nums[left:right+1])
+
+# 205. Isomorphic Strings
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        map = {}
+        if len(set(s)) != len(set(t)):
+            return False
+        for i in range(len(s)):
+            if map.get(s[i]) == None:
+                map[s[i]] = t[i]
+            else:
+                if map.get(s[i]) != t[i]:
+                    return False
+        return True
