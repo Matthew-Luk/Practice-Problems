@@ -1679,3 +1679,14 @@ class MyHashSet:
         
     def contains(self, key: int) -> bool:
         return key in self.hash_set
+
+# 929. Unique Email Addresses
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        for i in range(len(emails)):
+            emails[i] = emails[i].split("@")
+            emails[i][0] = emails[i][0].replace(".","")
+            emails[i] = "@".join(emails[i])
+            if emails[i].count("+") > 0:
+                emails[i] = emails[i][:emails[i].index("+")] + emails[i][emails[i].index("@"):]
+        return len(set(emails))
