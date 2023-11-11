@@ -1690,3 +1690,11 @@ class Solution:
             if emails[i].count("+") > 0:
                 emails[i] = emails[i][:emails[i].index("+")] + emails[i][emails[i].index("@"):]
         return len(set(emails))
+
+# 9. Palindrome Number
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        reverse = [i for i in str(x)[::-1]]
+        return int("".join(reverse)) == x
