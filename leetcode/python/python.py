@@ -1698,3 +1698,19 @@ class Solution:
             return False
         reverse = [i for i in str(x)[::-1]]
         return int("".join(reverse)) == x
+
+# 234. Palindrome Linked List
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        arr = []
+        runner = head
+        while runner != None:
+            arr.append(runner.val)
+            runner = runner.next
+        reverse = arr[::-1]
+        return arr == reverse
