@@ -1714,3 +1714,23 @@ class Solution:
             runner = runner.next
         reverse = arr[::-1]
         return arr == reverse
+
+# 125. Valid Palindrome
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        s = [x for x in s if ord(x) >= 97 and ord(x) <= 122 or ord(x) >= 48 and ord(x) <= 57]
+        l = 0
+        r = len(s) -1
+        while l <= r:
+            if s[l] != s[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        s = [x for x in s if ord(x) >= 97 and ord(x) <= 122 or ord(x) >= 48 and ord(x) <= 57]
+        return s == s[::-1]
