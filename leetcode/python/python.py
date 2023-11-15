@@ -1734,3 +1734,23 @@ class Solution:
         s = s.lower()
         s = [x for x in s if ord(x) >= 97 and ord(x) <= 122 or ord(x) >= 48 and ord(x) <= 57]
         return s == s[::-1]
+
+# 145. Binary Tree Postorder Traversal
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        self.answer = []
+        self.traversal(root)
+        return self.answer
+
+    def traversal(self, root):
+        if root == None:
+            return
+        self.traversal(root.left)
+        self.traversal(root.right)
+        self.answer.append(root.val)
