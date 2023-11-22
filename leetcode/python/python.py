@@ -1830,3 +1830,43 @@ class MyStack:
 # param_2 = obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.empty()
+
+# 20. Valid Parentheses
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for i in s:
+            if i == ")" and len(stack) == 0 or i == "]" and len(stack) == 0 or i == "}" and len(stack) == 0:
+                return False
+            if i == "(" or i == "[" or i == "{":
+                stack.append(i)
+            elif i == ")":
+                if stack[-1] == "(":
+                    stack.pop()
+                else:
+                    return False
+            elif i == "]":
+                if stack[-1] == "[":
+                    stack.pop()
+                else:
+                    return False
+            elif i == "}":
+                if stack[-1] == "{":
+                    stack.pop()
+                else:
+                    return False
+        return len(stack) == 0
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for i in s:
+            if i == "(" or i == "[" or i == "{":
+                stack.append(i)
+            elif stack == []:
+                return False
+            elif i == ")" and stack[-1] == "(" or i == "]" and stack[-1] == "[" or i == "}" and stack[-1] == "{":
+                stack.pop()
+            else:
+                return False
+        return len(stack) == 0
