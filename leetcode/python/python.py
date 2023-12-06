@@ -1922,3 +1922,14 @@ class MinStack:
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
+
+# 2390. Removing Stars From a String
+class Solution:
+    def removeStars(self, s: str) -> str:
+        stack = []
+        for i in s:
+            if i == "*":
+                stack.pop()
+            else:
+                stack.append(i)
+        return "".join(stack)
