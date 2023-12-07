@@ -1933,3 +1933,14 @@ class Solution:
             else:
                 stack.append(i)
         return "".join(stack)
+
+# 392. Is Subsequence
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        answer = 0
+        for i in t:
+            if answer == len(s):
+                return True
+            elif s[answer] == i:
+                answer += 1
+        return answer == len(s)
