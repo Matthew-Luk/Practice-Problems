@@ -1944,3 +1944,22 @@ class Solution:
             elif s[answer] == i:
                 answer += 1
         return answer == len(s)
+
+# 14. Longest Common Prefix
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        answer = ""
+        temp = min([len(x) for x in strs])
+        count = 0
+        while count < temp:
+            x = strs[0][count]
+            y = 0
+            for i in range(len(strs)):
+                if strs[i][count] == x:
+                    y += 1
+                if strs[i][count] != x:
+                    return answer
+                elif y == len(strs):
+                    answer += x
+            count += 1
+        return answer
