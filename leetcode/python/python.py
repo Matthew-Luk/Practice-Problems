@@ -1988,3 +1988,32 @@ class MyHashMap:
 # obj.put(key,value)
 # param_2 = obj.get(key)
 # obj.remove(key)
+
+# 167. Two Sum II - Input Array Is Sorted
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l = 0
+        r = len(numbers)-1
+
+        while l < r:
+            print(numbers[l], numbers[r])
+            temp = numbers[l] + numbers[r]
+            if temp == target:
+                return [l+1, r+1]
+            elif temp < target:
+                l += 1
+            else:
+                r -= 1
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l = 0
+        r = len(numbers)-1
+
+        while numbers[l] + numbers[r] != target:
+            temp = numbers[l] + numbers[r]
+            if temp < target:
+                l += 1
+            else:
+                r -= 1
+        return [l+1, r+1]
