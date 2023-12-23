@@ -2061,3 +2061,9 @@ class Solution:
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         return x ** n
+
+# 43. Multiply Strings
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        answer = eval(num1+"*"+num2)
+        return (str(answer))
