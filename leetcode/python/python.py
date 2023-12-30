@@ -2056,3 +2056,8 @@ class Solution:
                 answer += key
                 num -= roman[key]
         return answer
+
+# 50. Pow(x, n)
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        return x ** n
