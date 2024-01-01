@@ -2067,3 +2067,21 @@ class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         answer = eval(num1+"*"+num2)
         return (str(answer))
+
+# 49. Group Anagrams
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        map = {}
+        answer = []
+
+        for i in range(len(strs)):
+            temp = "".join(sorted(strs[i]))
+            if map.get(temp) == None:
+                map[temp] = [strs[i]]
+            else:
+                map[temp].append(strs[i])
+
+        for key in map:
+            answer.append(map[key])
+
+        return answer
