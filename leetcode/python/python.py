@@ -2091,3 +2091,30 @@ class Solution:
     def minPartitions(self, n: str) -> int:
         return int(max(n))
 
+# 2396. Strictly Palindromic Number
+class Solution:
+    def numberToBase(self, n, b):
+        if n == 0:
+            return [0]
+        digits = []
+        while n:
+            digits.append(int(n % b))
+            n //= b
+        return digits[::-1]
+
+    def isPalindrome(self, arr):
+        l = 0
+        r = len(arr) -1
+        while l <= r:
+            if arr[l] != arr[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
+
+    def isStrictlyPalindromic(self, n: int) -> bool:
+        temp = []
+        for i in range(2,n+1):
+            if self.isPalindrome(self.numberToBase(n,i)) == False:
+                return False
+        return True
