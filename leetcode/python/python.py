@@ -2134,3 +2134,23 @@ class Solution:
             l += 1
             r -= 1
         return "".join(s)
+
+# 2220. Minimum Bit Flips to Convert Number
+class Solution:
+    def minBitFlips(self, start: int, goal: int) -> int:
+        startbit = bin(start)[:1:-1]
+        goalbit = bin(goal)[:1:-1]
+    
+        if len(startbit) <= len(goalbit):
+            shorter, longer = startbit, goalbit
+        else:
+            shorter, longer = goalbit, startbit
+
+        while len(shorter) != len(longer):
+            shorter += "0"
+
+        answer = 0
+        for i in range(len(shorter)):
+            if shorter[i] != longer[i]:
+                answer += 1
+        return answer
