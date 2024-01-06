@@ -2154,3 +2154,17 @@ class Solution:
             if shorter[i] != longer[i]:
                 answer += 1
         return answer
+
+# 1614. Maximum Nesting Depth of the Parentheses
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        count = 0
+        max = 0
+        for i in s:
+            if i == "(":
+                count += 1
+            if count > max:
+                max = count
+            elif i == ")":
+                count -= 1
+        return max
