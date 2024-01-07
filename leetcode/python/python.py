@@ -2168,3 +2168,31 @@ class Solution:
             elif i == ")":
                 count -= 1
         return max
+
+# 2733. Neither Minimum nor Maximum
+class Solution:
+    def findNonMinOrMax(self, nums: List[int]) -> int:
+        if len(nums) <= 2:
+            return -1
+        else:
+            nums = sorted(nums)
+            return nums[len(nums)//2]
+
+# 2710. Remove Trailing Zeros From a String
+class Solution:
+    def removeTrailingZeros(self, num: str) -> str:
+        while num[-1] == "0":
+            num = num[:-1]
+        return num
+
+# 1827. Minimum Operations to Make the Array Increasing
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        if len(nums) <= 1:
+            return 0
+        answer = 0
+        for i in range(1,len(nums)):
+            if nums[i] <= nums[i-1]:
+                answer += nums[i-1] + 1 - nums[i]
+                nums[i] = nums[i-1] + 1
+        return answer
