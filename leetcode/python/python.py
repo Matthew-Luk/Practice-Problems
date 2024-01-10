@@ -2196,3 +2196,21 @@ class Solution:
                 answer += nums[i-1] + 1 - nums[i]
                 nums[i] = nums[i-1] + 1
         return answer
+
+# 2108. Find First Palindromic String in the Array
+class Solution:
+    def firstPalindrome(self, words: List[str]) -> str:
+        for word in words:
+            l = 0
+            r = len(word) -1
+            count = 0
+            while l <= r:
+                if l == r:
+                    count += 1
+                elif word[l] == word[r]:
+                    count += 2
+                l += 1
+                r -= 1
+            if count == len(word):
+                return word 
+        return ""
