@@ -2214,3 +2214,11 @@ class Solution:
             if count == len(word):
                 return word 
         return ""
+
+# 1812. Determine Color of a Chessboard Square
+class Solution:
+    def squareIsWhite(self, coordinates: str) -> bool:
+        x = ord(coordinates[0])-97
+        if x % 2 == 0:
+            return int(coordinates[1]) % 2 == 0
+        return int(coordinates[1]) % 2 == 1
