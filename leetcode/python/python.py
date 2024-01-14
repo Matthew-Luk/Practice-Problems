@@ -2222,3 +2222,11 @@ class Solution:
         if x % 2 == 0:
             return int(coordinates[1]) % 2 == 0
         return int(coordinates[1]) % 2 == 1
+
+# 1725. Number Of Rectangles That Can Form The Largest Square
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+        answer = []
+        for i in rectangles:
+            answer.append(min(i))
+        return answer.count(max(answer))
