@@ -2230,3 +2230,11 @@ class Solution:
         for i in rectangles:
             answer.append(min(i))
         return answer.count(max(answer))
+
+# 2670. Find the Distinct Difference Array
+class Solution:
+    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
+        answer = []
+        for i in range(len(nums)):
+            answer.append(len(set(nums[:i+1])) - len(set(nums[i+1:])))
+        return answer
