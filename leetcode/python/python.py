@@ -2238,3 +2238,25 @@ class Solution:
         for i in range(len(nums)):
             answer.append(len(set(nums[:i+1])) - len(set(nums[i+1:])))
         return answer
+
+# 461. Hamming Distance
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        x = bin(x)[2:]
+        y = bin(y)[2:]
+        
+        if len(x) < len(y):
+            shorter, longer = x, y
+        else:
+            shorter, longer = y, x
+
+        while len(shorter) != len(longer):
+            shorter = "0" + shorter
+        
+        print(shorter, longer)
+
+        answer = 0
+        for i in range(len(shorter)):
+            if shorter[i] != longer[i]:
+                answer += 1
+        return answer
