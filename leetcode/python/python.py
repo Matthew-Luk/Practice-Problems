@@ -2260,3 +2260,18 @@ class Solution:
             if shorter[i] != longer[i]:
                 answer += 1
         return answer
+
+# 657. Robot Return to Origin
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        answer = [0,0]
+        for i in moves:
+            if i == "U":
+                answer[0] += 1
+            elif i == "D":
+                answer[0] -= 1
+            elif i == "L":
+                answer[1] += 1
+            else:
+                answer[1] -= 1
+        return answer == [0,0]
