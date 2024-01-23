@@ -2286,3 +2286,14 @@ class Solution:
                     prices[i] = prices[i] - prices[j]
                     break
         return prices
+
+# 1207. Unique Number of Occurrences
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        map = {}
+        answer = []
+        for i in arr:
+            map[i] = map.get(i, 0) + 1
+        for value in map.values():
+            answer.append(value)
+        return len(answer) == len(set(answer))
