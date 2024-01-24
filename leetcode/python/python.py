@@ -560,6 +560,15 @@ class Solution:
                     result.append(j)
         return result
 
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        map = {}
+        for i, v in enumerate(nums):
+            check = target - v
+            if map.get(check) is not None:
+                return [map[check], i]
+            map[v] = i
+
 # 2520. Count the Digits That Divide a Number
 class Solution:
     def countDigits(self, num: int) -> int:
