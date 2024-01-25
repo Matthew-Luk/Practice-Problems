@@ -52,6 +52,18 @@ class Solution:
                     counter += 1
         return counter
 
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        answer = 0
+        map = {}
+        for i in nums:
+            if map.get(i) is None:
+                map[i] = 1
+            else:
+                answer += map[i]
+                map[i] += 1
+        return answer
+
 # 1672. Richest Customer Wealth
 class Solution:
     def maximumWealth(self, accounts):
@@ -70,6 +82,17 @@ class Solution:
                 if jewels[i] == stones[j]:
                     x += 1
         return x
+
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        answer = 0
+        map = {}
+        for i in stones:
+            map[i] = map.get(i,0)+1
+        for i in jewels:
+            if map.get(i):
+                answer += map[i]
+        return answer
 
 # 2413. Smallest Even Multiple
 class Solution:
@@ -727,6 +750,31 @@ class Solution:
                     if nums[j] - nums[i] == diff and nums[k] - nums[j] == diff:
                         answer.append([i,j,k])
         return len(answer)
+
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        answer = 0
+        map = {}
+        for i, v in enumerate(nums):
+            check1 = v - diff
+            check2 = check1 - diff
+            map[v] = i
+            if map.get(check1) is not None and map.get(check2) is not None:
+                answer += 1
+        print(map)
+        return answer
+
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        answer = 0
+        seen = set()
+        for i, v in enumerate(nums):
+            check1 = v - diff
+            check2 = check1 - diff
+            seen.add(v)
+            if check1 in seen and check2 in seen:
+                answer += 1
+        return answer
 
 # 2485. Find the Pivot Integer
 class Solution:
