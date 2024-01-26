@@ -31,6 +31,10 @@ class Solution:
             nums[i] = x
         return nums
 
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        return [sum(nums[:i+1]) for i in range(len(nums))]
+
 # 2011. Final Value of Variable After Performing Operations
 class Solution:
     def finalValueAfterOperations(self, operations):
@@ -189,6 +193,16 @@ class Solution:
         command = command.replace("()","o")
         command = command.replace("(al)","al")
         return command
+
+class Solution:
+    def interpret(self, command: str) -> str:
+        answer = []
+        for i in range(len(command)):
+            if command[i] == "(" and command[i+1] == ")":
+                answer.append("o")
+            elif command[i] != "(" and command[i] != ")":
+                answer.append(command[i])
+        return "".join(answer)
 
 # 1470. Shuffle the Array
 class Solution:
