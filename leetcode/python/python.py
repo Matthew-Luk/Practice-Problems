@@ -2368,3 +2368,8 @@ class Solution:
         for value in map.values():
             answer.append(value)
         return len(answer) == len(set(answer))
+
+# 2716. Minimize String Length
+class Solution:
+    def minimizedStringLength(self, s: str) -> int:
+        return len(set(s))
