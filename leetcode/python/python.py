@@ -1589,6 +1589,22 @@ class Solution:
         arr.pop(0)
         return arr
 
+class Solution:
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        answer, stack = [], []
+        for i in range(len(arr)-1,-1,-1):
+            if answer == []:
+                answer.append(-1)
+                stack.append(arr[i])
+            else:
+                if arr[i] > stack[-1]:
+                    answer.append(stack[-1])
+                    stack.append(arr[i])
+                else:
+                    answer.append(stack[-1])
+        print(answer, stack)
+        return answer[::-1]
+
 # 290. Word Pattern
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
@@ -1672,6 +1688,15 @@ class Solution:
                         return -1
         return -1
 
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle not in haystack:
+            return -1
+        for i in range(len(haystack)):
+            if haystack[i] == needle[0]:
+                if haystack[i:i+len(needle)] == needle:
+                    return i
+
 # 1822. Sign of the Product of an Array
 class Solution:
     def arraySign(self, nums: List[int]) -> int:
@@ -1679,6 +1704,18 @@ class Solution:
         for i in nums:
             product *= i
         return 1 if product > 0 else (-1 if product < 0 else 0)
+
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        negative = 0
+        for i in nums:
+            if i == 0:
+                return 0
+            elif i < 0:
+                negative += 1
+        if negative % 2 == 0:
+            return 1
+        return -1
 
 # 1189. Maximum Number of Balloons
 class Solution:
@@ -1736,6 +1773,20 @@ class Solution:
                     return False
         return True
 
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        key = {}
+        for i in range(len(s)):
+            key[s[i]] = t[i]
+        if len(key.values()) != len(set(key.values())):
+            return False
+        answer = []
+        for i in s:
+            if key.get(i) is None:
+                return False
+            answer.append(key[i])
+        return "".join(answer) == t
+
 # 705. Design HashSet
 class MyHashSet:
     def __init__(self):
@@ -1769,6 +1820,23 @@ class Solution:
             return False
         reverse = [i for i in str(x)[::-1]]
         return int("".join(reverse)) == x
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        bin = []
+        while x > 0:
+            bin.append(x%10)
+            x = x // 10
+        l = 0
+        r = len(bin) -1
+        while l < r:
+            if bin[l] != bin[r]:
+                return False
+            l += 1
+            r -= 1
+        return True
 
 # 234. Palindrome Linked List
 # Definition for singly-linked list.
@@ -2373,3 +2441,14 @@ class Solution:
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
         return len(set(s))
+
+class Solution:
+    def minimizedStringLength(self, s: str) -> int:
+        set1 = set()
+        for i in s:
+            if i not in set1:
+                set1.add(i)
+        answer = 0
+        for i in set1:
+            answer += 1
+        return answer
