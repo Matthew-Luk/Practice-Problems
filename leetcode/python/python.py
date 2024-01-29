@@ -2452,3 +2452,15 @@ class Solution:
         for i in set1:
             answer += 1
         return answer
+
+# 2529. Maximum Count of Positive Integer and Negative Integer
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        positive = 0
+        negative = 0
+        for i in nums:
+            if i < 0:
+                negative += 1
+            elif i > 0:
+                positive += 1
+        return max(positive, negative)
