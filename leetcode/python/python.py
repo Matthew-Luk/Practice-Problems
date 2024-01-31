@@ -2471,3 +2471,12 @@ class Solution:
         while original in nums:
             original *= 2
         return original
+
+# 2255. Count Prefixes of a Given String
+class Solution:
+    def countPrefixes(self, words: List[str], s: str) -> int:
+        answer = 0
+        for i in words:
+            if i == s[:len(i)]:
+                answer += 1
+        return answer
