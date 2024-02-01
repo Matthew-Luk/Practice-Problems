@@ -2480,3 +2480,17 @@ class Solution:
             if i == s[:len(i)]:
                 answer += 1
         return answer
+
+# 136. Single Number
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        for i in nums:
+            if nums.count(i) == 1:
+                return i
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        result = 0
+        for num in nums:
+            result ^= num
+        return result
