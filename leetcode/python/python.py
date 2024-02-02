@@ -2494,3 +2494,17 @@ class Solution:
         for num in nums:
             result ^= num
         return result
+
+# 2578. Split With Minimum Sum
+class Solution:
+    def splitNum(self, num: int) -> int:
+        num = sorted([x for x in str(num)])
+        num1, num2 = [], []
+        for i in range(len(num)):
+            if i % 2 == 0:
+                num1.append(num[i])
+            else:
+                num2.append(num[i])
+        num1 = int("".join(num1))
+        num2 = int("".join(num2))
+        return num1 + num2
