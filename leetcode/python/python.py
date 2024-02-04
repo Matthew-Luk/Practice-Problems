@@ -998,6 +998,20 @@ class Solution:
             temp = 0
         return temp + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
 
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        arr = []
+        def traversal(root):
+            if root is None:
+                return
+            if low <= root.val <= high:
+                arr.append(root.val)
+            traversal(root.left)
+            traversal(root.right)
+        
+        traversal(root)
+        return sum(arr)
+
 # 700. Search in a Binary Search Tree
 # Definition for a binary tree node.
 # class TreeNode:
