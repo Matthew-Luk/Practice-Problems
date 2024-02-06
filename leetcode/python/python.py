@@ -2522,3 +2522,14 @@ class Solution:
         num1 = int("".join(num1))
         num2 = int("".join(num2))
         return num1 + num2
+
+# 1436. Destination City
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        map = {}
+        for i in paths:
+            map[i[0]] = i[1]
+        cities = map.keys()
+        for value in map.values():
+            if value not in cities:
+                return value
