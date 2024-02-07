@@ -2533,3 +2533,12 @@ class Solution:
         for value in map.values():
             if value not in cities:
                 return value
+
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        map = {}
+        for i in paths:
+            map[i[0]] = i[1]
+        for value in map.values():
+            if value not in map.keys():
+                return value
