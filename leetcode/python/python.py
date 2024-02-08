@@ -2542,3 +2542,16 @@ class Solution:
         for value in map.values():
             if value not in map.keys():
                 return value
+
+# 2595. Number of Even and Odd Bits
+class Solution:
+    def evenOddBit(self, n: int) -> List[int]:
+        answer = [0,0]
+        n = bin(n)[:1:-1]
+        for i in range(len(n)):
+            if n[i] == "1":
+                if i % 2 == 0:
+                    answer[0] += 1
+                else:
+                    answer[1] += 1
+        return answer
