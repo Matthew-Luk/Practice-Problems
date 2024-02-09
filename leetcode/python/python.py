@@ -2555,3 +2555,33 @@ class Solution:
                 else:
                     answer[1] += 1
         return answer
+
+# 922. Sort Array By Parity II
+class Solution:
+    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+        answer = []
+        even = []
+        odd = []
+        for i in nums:
+            if i % 2 == 0:
+                even.append(i)
+            else:
+                odd.append(i)
+        for i in range(len(even)):
+            answer.append(even[i])
+            answer.append(odd[i])
+        return answer
+
+class Solution:
+    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+        answer = [0] * len(nums)
+        even = 0
+        odd = 1
+        for i in nums:
+            if i % 2 == 0:
+                answer[even] = i
+                even += 2
+            else:
+                answer[odd] = i
+                odd += 2
+        return answer
