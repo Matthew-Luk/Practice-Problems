@@ -2585,3 +2585,29 @@ class Solution:
                 answer[odd] = i
                 odd += 2
         return answer
+
+# 905. Sort Array By Parity
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        even = []
+        odd = []
+        for i in nums:
+            if i % 2 == 0:
+                even.append(i)
+            else:
+                odd.append(i)
+        return even + odd
+
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        answer = [0] * len(nums)
+        even = 0
+        odd = len(nums) -1
+        for i in nums:
+            if i % 2 == 0:
+                answer[even] = i
+                even += 1
+            else:
+                answer[odd] = i
+                odd -= 1
+        return answer
