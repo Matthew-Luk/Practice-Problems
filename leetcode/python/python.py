@@ -33,6 +33,13 @@ class Solution:
 
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
+        answer = [nums[0]]
+        for i in nums[1:]:
+            answer.append(i + answer[-1])
+        return answer
+
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
         return [sum(nums[:i+1]) for i in range(len(nums))]
 
 # 2011. Final Value of Variable After Performing Operations
@@ -797,6 +804,17 @@ class Solution:
         for i in range(len(newList)):
             if sum(newList[:i+1]) == sum(newList[i:]):
                 return newList[i]
+        return -1
+
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        prefix = [0]
+        for i in range(1,n+1):
+            prefix.append(prefix[-1] + i)
+        print(prefix)
+        for i in range(1,len(prefix)):
+            if prefix[-1] - prefix[i] == prefix[i-1]:
+                return i
         return -1
 
 # 2418. Sort the People
