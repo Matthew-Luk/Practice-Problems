@@ -2629,3 +2629,11 @@ class Solution:
                 answer[odd] = i
                 odd -= 1
         return answer
+
+# 2283. Check if Number Has Equal Digit Count and Digit Value
+class Solution:
+    def digitCount(self, num: str) -> bool:
+        for i in range(len(num)):
+            if str(num.count(str(i))) != num[i]:
+                return False
+        return True
