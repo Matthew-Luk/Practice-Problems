@@ -2644,3 +2644,22 @@ class Solution:
             if num.count(str(i)) != int(num[i]):
                 return False
         return True
+
+# 1991. Find the Middle Index in Array
+class Solution:
+    def findMiddleIndex(self, nums: List[int]) -> int:
+        count = 0
+        for i in range(len(nums)):
+            count += nums[i]
+            if count == sum(nums[i:]):
+                return i
+        return -1
+
+class Solution:
+    def findMiddleIndex(self, nums: List[int]) -> int:
+        left = [sum(nums[:i]) for i in range(len(nums))]
+        right = [sum(nums[i+1:]) for i in range(len(nums))]
+        for i in range(len(left)):
+            if left[i] == right[i]:
+                return i
+        return -1
