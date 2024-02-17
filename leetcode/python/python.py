@@ -2675,3 +2675,12 @@ class Solution:
                 if temp_set == temp_set2:
                     answer += 1
         return answer
+
+# 2085. Count Common Words With One Occurrence
+class Solution:
+    def countWords(self, words1: List[str], words2: List[str]) -> int:
+        answer = 0
+        for i in words1:
+            if words1.count(i) == 1 and words2.count(i) == 1:
+                answer += 1
+        return answer
