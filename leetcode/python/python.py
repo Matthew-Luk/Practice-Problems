@@ -40,6 +40,13 @@ class Solution:
 
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
+        answer = [nums[0]]
+        for i in nums[1:]:
+            answer.append(i + answer[-1])
+        return answer
+
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
         return [sum(nums[:i+1]) for i in range(len(nums))]
 
 # 2011. Final Value of Variable After Performing Operations
@@ -126,21 +133,18 @@ class Solution:
         ans = [0] * len(nums)
         for i in range(len(ans)):
             ans[i] = nums[nums[i]]
-        print(ans)
         return ans
 
 # 1431. Kids With the Greatest Number of Candies
 class Solution:
     def kidsWithCandies(self, candies, extraCandies):
         x = max(candies)
-        print (f"The max is: {x}")
         for i in range(len(candies)):
             if candies[i] + extraCandies >= x:
                 candies[i] = True
             else:
                 candies[i] = False
-        print(f"This is the print statement: {candies}")
-        return(candies)
+        return candies
 
 # 1281. Subtract the Product and Sum of Digits of an Integer
 class Solution:
@@ -258,7 +262,6 @@ class Solution:
             y = 2
         for i in range(len(items)):
             if items[i][y] == ruleValue:
-                print(items[i][0])
                 x += 1
         return x
 
@@ -285,8 +288,6 @@ class Solution:
         new2 = [str(x) for x in new2]
         new1 = "".join(new1)
         new2 = "".join(new2)
-        print(new1)
-        print(new2)
         return (int(new1) + int(new2))
 
 class Solution:
@@ -518,7 +519,6 @@ class Solution:
     def prefixCount(self, words, pref):
         count = 0
         length = len(pref)
-        print(length)
         for i in words:
             if i[:length] == pref:
                 count += 1
@@ -687,7 +687,6 @@ class Solution:
         results = []
         for i in range(len(s)):
             results.append(s.count(s[i]))
-        print(results)
         return len(set(results)) == 1
 
 # 1748. Sum of Unique Elements
@@ -739,8 +738,6 @@ class Solution:
 class Solution:
     def deleteGreatestValue(self, grid) -> int:
         rows, cols = len(grid), len(grid[0])
-        print(rows)
-        print(cols)
         result = 0
         for i in range(rows):
             grid[i] = sorted(grid[i])[::-1]
@@ -782,7 +779,6 @@ class Solution:
             map[v] = i
             if map.get(check1) is not None and map.get(check2) is not None:
                 answer += 1
-        print(map)
         return answer
 
 class Solution:
@@ -811,7 +807,6 @@ class Solution:
         prefix = [0]
         for i in range(1,n+1):
             prefix.append(prefix[-1] + i)
-        print(prefix)
         for i in range(1,len(prefix)):
             if prefix[-1] - prefix[i] == prefix[i-1]:
                 return i
@@ -1588,7 +1583,6 @@ class Solution:
             if x != val:
                 nums[i] = x
                 i += 1
-        print(nums)
         return i
 
 # 169. Majority Element
@@ -1634,7 +1628,6 @@ class Solution:
                     stack.append(arr[i])
                 else:
                     answer.append(stack[-1])
-        print(answer, stack)
         return answer[::-1]
 
 # 290. Word Pattern
@@ -1650,7 +1643,6 @@ class Solution:
             else:
                 if answer[words[i]] != pattern[i]:
                     return False
-        print(answer)
         return True
 
 # 496. Next Greater Element I
@@ -2167,7 +2159,6 @@ class Solution:
         r = len(numbers)-1
 
         while l < r:
-            print(numbers[l], numbers[r])
             temp = numbers[l] + numbers[r]
             if temp == target:
                 return [l+1, r+1]
@@ -2423,8 +2414,6 @@ class Solution:
 
         while len(shorter) != len(longer):
             shorter = "0" + shorter
-        
-        print(shorter, longer)
 
         answer = 0
         for i in range(len(shorter)):
