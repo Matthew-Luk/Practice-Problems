@@ -2673,3 +2673,31 @@ class Solution:
             if words1.count(i) == 1 and words2.count(i) == 1:
                 answer += 1
         return answer
+
+# 2562. Find the Array Concatenation Value
+class Solution:
+    def findTheArrayConcVal(self, nums: List[int]) -> int:
+        answer = 0
+        while len(nums) > 0:
+            if len(nums) == 1:
+                answer += nums[0]
+                break
+            temp = str(nums[0]) + str(nums[-1])
+            answer += int(temp)
+            nums = nums[1:-1]
+        return answer
+
+class Solution:
+    def findTheArrayConcVal(self, nums: List[int]) -> int:
+        answer = 0
+        l = 0
+        r = len(nums) -1
+        while l <= r:
+            if l == r:
+                answer += nums[r]
+                break
+            temp = str(nums[l]) + str(nums[r])
+            answer += int(temp)
+            l += 1
+            r -= 1
+        return answer
