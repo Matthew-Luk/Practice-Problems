@@ -1,5 +1,6 @@
 from typing import List, Optional, ListNode, Node
 from collections import defaultdict
+from heapq import heapify, heappush, heappop
 import math
 
 # 1929. Concatenation of Array
@@ -459,6 +460,16 @@ class Solution:
         newNums = sorted(nums)
         return (newNums[-1] - 1) * (newNums[-2] - 1)
 
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        heap = [- x for x in nums]
+        heapify(heap)
+
+        x = heappop(heap) * -1
+        y = heappop(heap) * -1
+
+        return (x-1) * (y-1)
+
 # 1732. Find the Highest Altitude
 class Solution:
     def largestAltitude(self, gain):
@@ -747,6 +758,21 @@ class Solution:
                 temp.append(grid[i][j])
             result += max(temp)
         return result
+
+class Solution:
+    def deleteGreatestValue(self, grid: List[List[int]]) -> int:
+        answer = 0
+        for i in range(len(grid)):
+            grid[i] = [-x for x in grid[i]]
+            heapify(grid[i])
+
+        while grid[0]:
+            temp = []
+            for i in range(len(grid)):
+                temp.append(heappop(grid[i])*-1)
+            answer += max(temp)
+
+        return answer
 
 # 2574. Left and Right Sum Differences
 class Solution:
