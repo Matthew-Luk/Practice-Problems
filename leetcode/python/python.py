@@ -560,6 +560,16 @@ class Solution:
                 return i
         return -1
 
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        total = sum(nums)
+        diff = 0
+        for i in range(len(nums)):
+            diff += nums[i]
+            if total-diff == diff-nums[i]:
+                return i
+        return -1
+
 # 217. Contains Duplicate
 class Solution:
     def containsDuplicate(self, nums) -> bool:
