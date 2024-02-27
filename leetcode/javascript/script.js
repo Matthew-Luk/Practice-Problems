@@ -23,3 +23,13 @@ var differenceOfSums = function(n, m) {
     }
     return answer
 };
+
+// 1929. Concatenation of Array
+var getConcatenation = function(nums) {
+    let answer = new Array(nums.length*2)
+    for(i=0;i<nums.length;i++){
+        answer[i] = nums[i]
+        answer[i+nums.length] = nums[i]
+    }
+    return answer
+};
