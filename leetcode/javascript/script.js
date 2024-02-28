@@ -33,3 +33,12 @@ var getConcatenation = function(nums) {
     }
     return answer
 };
+
+// 1920. Build Array from Permutation
+var buildArray = function(nums) {
+    let answer = new Array(nums.length)
+    for(i=0;i<nums.length;i++){
+        answer[i] = nums[nums[i]]
+    }
+    return answer
+};
