@@ -42,3 +42,8 @@ var buildArray = function(nums) {
     }
     return answer
 };
+
+// 2769. Find the Maximum Achievable Number
+var theMaximumAchievableX = function(num, t) {
+    return num + (t*2)
+};
