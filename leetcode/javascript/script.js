@@ -47,3 +47,8 @@ var buildArray = function(nums) {
 var theMaximumAchievableX = function(num, t) {
     return num + (t*2)
 };
+
+// 2469. Convert the Temperature
+var convertTemperature = function(celsius) {
+    return [celsius + 273.15, celsius * 1.8 + 32]
+};
