@@ -2754,3 +2754,25 @@ class Solution:
             if len(set(temp)) == 1:
                 answer.append(words[i])
         return answer
+
+# 2309. Greatest English Letter in Upper and Lower Case
+class Solution:
+    def greatestLetter(self, s: str) -> str:
+        answer = []
+        for i in s:
+            answer.append(ord(i))
+        answer = sorted(answer, reverse=True)
+        for i in answer:
+            search = i - 32
+            if search in answer:
+                return chr(i - 32)
+        return ""
+
+class Solution:
+    def greatestLetter(self, s: str) -> str:
+        letters = set(s)
+        letters = sorted(letters, reverse=True)
+        for i in letters:
+            if i.lower() in letters and i.upper() in letters:
+                return i.upper()
+        return ""
