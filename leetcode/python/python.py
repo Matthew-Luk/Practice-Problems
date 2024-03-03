@@ -2776,3 +2776,15 @@ class Solution:
             if i.lower() in letters and i.upper() in letters:
                 return i.upper()
         return ""
+
+# 2544. Alternating Digit Sum
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        num = [int(x) for x in str(n)]
+        answer = 0
+        for i in range(len(num)):
+            if i % 2 == 0:
+                answer += num[i]
+            else:
+                answer -= num[i]
+        return answer
