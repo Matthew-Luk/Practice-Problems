@@ -2803,3 +2803,19 @@ class Solution:
                 if count == len(str(i)):
                     results.append(i)
         return results
+
+# 2103. Rings and Rods
+class Solution:
+    def countPoints(self, rings: str) -> int:
+        map = {}
+        for i in range(0,len(rings),2):
+            if map.get(rings[i+1]) == None:
+                map[rings[i+1]] = [rings[i]]
+            else:
+                map[rings[i+1]].append(rings[i])
+
+        answer = 0
+        for value in map.values():
+            if len(set(value)) == 3:
+                answer += 1
+        return answer
