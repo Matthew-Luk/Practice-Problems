@@ -2819,3 +2819,13 @@ class Solution:
             if len(set(value)) == 3:
                 answer += 1
         return answer
+
+# 1502. Can Make Arithmetic Progression From Sequence
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        temp = sorted(arr)
+        progression = abs(temp[0] - temp[1])
+        for i in range(len(temp)-1):
+            if abs(temp[i] - temp[i+1]) != progression:
+                return False
+        return True
