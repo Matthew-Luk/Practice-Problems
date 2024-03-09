@@ -2829,3 +2829,31 @@ class Solution:
             if abs(temp[i] - temp[i+1]) != progression:
                 return False
         return True
+
+# 944. Delete Columns to Make Sorted
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        answer = 0
+        i = 0
+        while i < len(strs[0]):
+            temp = []
+            for j in range(len(strs)):
+                if j != 0 and ord(strs[j][i]) < temp[-1]:
+                    answer += 1
+                    break
+                temp.append(ord(strs[j][i]))
+            i += 1
+        return answer
+
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        answer = 0
+        i = 0
+        while i < len(strs[0]):
+            temp = []
+            for j in range(len(strs)):
+                temp.append(ord(strs[j][i]))
+            if temp != sorted(temp):
+                answer += 1
+            i += 1
+        return answer
