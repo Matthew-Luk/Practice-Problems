@@ -2857,3 +2857,17 @@ class Solution:
                 answer += 1
             i += 1
         return answer
+
+# 2643. Row With Maximum Ones
+class Solution:
+    def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+        answer = [0,0]
+        for i in range(len(mat)):
+            count = 0
+            for j in mat[i]:
+                if j == 1:
+                    count += 1
+            mat[i] = count
+            if count > answer[1]:
+                answer = [i,count]
+        return answer
