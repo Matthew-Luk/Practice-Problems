@@ -2896,3 +2896,30 @@ class Solution:
             current.next = list1 if list1 else list2
         
         return head.next
+
+# 1974. Minimum Time to Type Word Using Special Typewriter
+class Solution:
+    def minTimeToType(self, word: str) -> int:
+        answer = 0
+        order = []
+        for i in range(len(word)):
+            order.append(ord(word[i]) - 97)
+        for j in range(len(order)):
+            if j == 0:
+                answer += min(order[j], abs(26 - order[j]))
+            else:
+                if order[j] <= order[j-1]:
+                    answer += min(abs(order[j] - order[j-1]), abs(26 - order[j-1]) + order[j])
+                else:
+                    answer += min(abs(order[j] - order[j-1]), abs(26 - order[j]) + order[j-1])
+        return answer + len(word)
+
+class Solution:
+    def minTimeToType(self, word: str) -> int:
+        ans = len(word)
+        prev = "a"
+        for ch in word: 
+            val = (ord(ch) - ord(prev)) % 26 
+            ans += min(val, 26 - val)
+            prev = ch
+        return ans 
