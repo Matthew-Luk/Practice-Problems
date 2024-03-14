@@ -2923,3 +2923,22 @@ class Solution:
             ans += min(val, 26 - val)
             prev = ch
         return ans 
+
+# 1460. Make Two Arrays Equal by Reversing Subarrays
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        if list == arr:
+            return True
+        map = {}
+        for i in range(len(arr)):
+            map[arr[i]] = map.get(arr[i],0) + 1
+            map[target[i]] = map.get(target[i],0) - 1
+
+        for v in map.values():
+            if v != 0:
+                return False
+        return True
+
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        return sorted(target) == sorted(arr)
