@@ -2942,3 +2942,19 @@ class Solution:
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return sorted(target) == sorted(arr)
+
+# 821. Shortest Distance to a Character
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        location = []
+        answer = []
+        for i in range(len(s)):
+            if s[i] == c:
+                location.append(i)
+        for i in range(len(s)):
+            min = len(s)
+            for j in location:
+                if abs(j-i) < min:
+                    min = abs(j-i)
+            answer.append(min)
+        return answer
