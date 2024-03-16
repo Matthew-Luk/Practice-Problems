@@ -2958,3 +2958,17 @@ class Solution:
                     min = abs(j-i)
             answer.append(min)
         return answer
+
+# 1200. Minimum Absolute Difference
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        arr = sorted(arr)
+        answer = []
+        min = arr[-1]
+        for i in range(1,len(arr)):
+            if abs(arr[i] - arr[i-1]) < min:
+                min = abs(arr[i] - arr[i-1])
+        for i in range(1,len(arr)):
+            if abs(arr[i] - arr[i-1]) == min:
+                answer.append([arr[i-1],arr[i]])
+        return answer
