@@ -2986,3 +2986,19 @@ class Solution:
                 nums[count], nums[i] = nums[i], nums[count]
                 count += 1
         return nums
+
+# 258. Add Digits
+class Solution:
+    def addDigits(self, num: int) -> int:
+        while num > 9:
+            num = sum([int(x) for x in str(num)])
+        return num
+
+class Solution:
+    def addDigits(self, num: int) -> int:
+        if num == 0:
+            return 0
+        elif num % 9 == 0:
+            return 9
+        else:
+            return num % 9
