@@ -3002,3 +3002,13 @@ class Solution:
             return 9
         else:
             return num % 9
+
+# 2180. Count Integers With Even Digit Sum
+class Solution:
+    def countEven(self, num: int) -> int:
+        answer = 0
+        for i in range(1,num+1):
+            temp = sum([int(x) for x in str(i)])
+            if temp % 2 == 0:
+                answer += 1
+        return answer
