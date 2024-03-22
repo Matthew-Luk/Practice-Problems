@@ -3012,3 +3012,14 @@ class Solution:
             if temp % 2 == 0:
                 answer += 1
         return answer
+
+# 1137. N-th Tribonacci Number
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        fib = [0,1,1]
+        if n <= 2:
+            return fib[n]
+        else:
+            for i in range(3,n):
+                fib.append(fib[-1] + fib[-2] + fib[-3])
+        return fib[-1] + fib[-2] + fib[-3]
