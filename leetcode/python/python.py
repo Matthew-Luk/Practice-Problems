@@ -3023,3 +3023,15 @@ class Solution:
             for i in range(3,n):
                 fib.append(fib[-1] + fib[-2] + fib[-3])
         return fib[-1] + fib[-2] + fib[-3]
+
+# 1408. String Matching in an Array
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        answer = []
+        for i in range(len(words)):
+            for j in range(i+1,len(words)):
+                if words[i] in words[j] and words[i] not in answer:
+                    answer.append(words[i])
+                elif words[j] in words[i] and words[j] not in answer:
+                    answer.append(words[j])
+        return answer
