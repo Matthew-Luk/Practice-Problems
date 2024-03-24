@@ -3035,3 +3035,25 @@ class Solution:
                 elif words[j] in words[i] and words[j] not in answer:
                     answer.append(words[j])
         return answer
+
+# 2068. Check Whether Two Strings are Almost Equivalent
+class Solution:
+    def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
+        map = {}
+        for letter in word1:
+            map[letter] = map.get(letter,0) +1
+        for letter in word2:
+            map[letter] = map.get(letter,0) -1
+        for v in map.values():
+            if v < -3 or v > 3:
+                return False
+        return True
+
+class Solution:
+    def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
+        for i in range(len(word1)):
+            if abs(word1.count(word1[i]) - word2.count(word1[i])) > 3:
+                return False
+            elif abs(word2.count(word2[i]) - word1.count(word2[i])) > 3:
+                return False
+        return True
