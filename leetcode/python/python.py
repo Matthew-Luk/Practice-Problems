@@ -3057,3 +3057,14 @@ class Solution:
             elif abs(word2.count(word2[i]) - word1.count(word2[i])) > 3:
                 return False
         return True
+
+# 268. Missing Number
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        arr = list(range(0,max(nums)+1))
+        if sum(arr) - sum(nums) == 0:
+            if 0 not in nums:
+                return 0
+            else:
+                return max(nums) + 1
+        return sum(arr) - sum(nums)
