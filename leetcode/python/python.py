@@ -3068,3 +3068,16 @@ class Solution:
             else:
                 return max(nums) + 1
         return sum(arr) - sum(nums)
+
+# 1550. Three Consecutive Odds
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        count = 0
+        for i in arr:
+            if i % 2 == 1:
+                count += 1
+                if count == 3:
+                    return True
+            else:
+                count = 0
+        return False
