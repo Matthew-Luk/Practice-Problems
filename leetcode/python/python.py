@@ -3108,3 +3108,15 @@ class Solution:
                 if words[i][0] == words[j][1] and words[i][1] == words[j][0]:
                     answer += 1
         return answer
+
+# 1742. Maximum Number of Balls in a Box
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+        boxes = {}
+        answer = 0
+        for i in range(lowLimit, highLimit +1):
+            temp = sum([int(x) for x in str(i)])
+            boxes[temp] = boxes.get(temp,0) + 1
+            if boxes[temp] > answer:
+                answer = boxes[temp]
+        return answer
