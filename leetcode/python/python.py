@@ -3120,3 +3120,21 @@ class Solution:
             if boxes[temp] > answer:
                 answer = boxes[temp]
         return answer
+
+# 2558. Take Gifts From the Richest Pile
+class Solution:
+    def pickGifts(self, gifts: List[int], k: int) -> int:
+        answer = 0
+        while k > 0:
+            gifts[gifts.index(max(gifts))] = int(math.sqrt(max(gifts)))
+            k -= 1
+        return sum(gifts)
+
+class Solution:
+    def pickGifts(self, gifts: List[int], k: int) -> int:
+        while k > 0:
+            gifts = sorted(gifts)
+            temp = int(math.sqrt(gifts[-1]))
+            gifts[-1] = temp
+            k -= 1
+        return sum(gifts)
