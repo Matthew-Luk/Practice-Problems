@@ -3138,3 +3138,12 @@ class Solution:
             gifts[-1] = temp
             k -= 1
         return sum(gifts)
+
+# 2441. Largest Positive Integer That Exists With Its Negative
+class Solution:
+    def findMaxK(self, nums: List[int]) -> int:
+        nums = sorted(nums, reverse=True)
+        for i in range(len(nums)):
+            if nums[i] * -1 in nums:
+                return nums[i]
+        return -1
