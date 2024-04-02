@@ -3147,3 +3147,16 @@ class Solution:
             if nums[i] * -1 in nums:
                 return nums[i]
         return -1
+
+# 824. Goat Latin
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        vowels = "aeiouAEIOU"
+        sentence = sentence.split(" ")
+        answer = []
+        for i in range(len(sentence)):
+            if sentence[i][0] in vowels:
+                answer.append(sentence[i] + "ma" + ("a"*(i+1)))
+            elif sentence[i][0] not in vowels:
+                answer.append(sentence[i][1:] + sentence[i][0] + "ma" + ("a"*(i+1)))
+        return " ".join(answer)
