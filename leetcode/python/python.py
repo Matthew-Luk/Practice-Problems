@@ -3169,3 +3169,12 @@ class Solution:
         if (max(nums)-k) - (min(nums)+k) > 0:
             return (max(nums)-k) - (min(nums)+k)
         return 0
+
+# 2042. Check if Numbers Are Ascending in a Sentence
+class Solution:
+    def areNumbersAscending(self, s: str) -> bool:
+        s = [int(x) for x in s.split() if x.isdigit()]
+        for i in range(len(s)-1):
+            if s[i] >= s[i+1]:
+                return False
+        return True
