@@ -3189,3 +3189,12 @@ class Codec:
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.decode(codec.encode(url))
+
+# 1967. Number of Strings That Appear as Substrings in Word
+class Solution:
+    def numOfStrings(self, patterns: List[str], word: str) -> int:
+        answer = 0
+        for i in patterns:
+            if i in word:
+                answer += 1
+        return answer
