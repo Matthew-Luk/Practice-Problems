@@ -3198,3 +3198,22 @@ class Solution:
             if i in word:
                 answer += 1
         return answer
+
+# 1252. Cells with Odd Values in a Matrix
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        mat = []
+        while m > 0:
+            mat.append([0]*n)
+            m -= 1
+        for i in indices:
+            mat[i[0]] = [x + 1 for x in mat[i[0]]]
+            for j in mat:
+                j[i[1]] += 1
+
+        answer = 0
+        for i in range(len(mat)):
+            for j in mat[i]:
+                if j % 2 != 0:
+                    answer += 1
+        return answer
