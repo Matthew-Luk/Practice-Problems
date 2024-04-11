@@ -3217,3 +3217,16 @@ class Solution:
                 if j % 2 != 0:
                     answer += 1
         return answer
+
+# 1309. Decrypt String from Alphabet to Integer Mapping
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        answer = []
+        for i in range(len(s)):
+            if s[i] != "#":
+                answer.append(chr(int(s[i])+96))
+            else:
+                temp = ((ord(answer[-2])-96) * 10) + ord(answer[-1])-96
+                answer = answer[:-2]
+                answer.append(chr(temp+96))
+        return "".join(answer)
