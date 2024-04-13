@@ -3274,3 +3274,34 @@ class Solution:
                     answer += boxTypes[i][1]
                     truckSize -= 1
         return answer
+
+# 942. DI String Match
+class Solution:
+    def diStringMatch(self, s: str) -> List[int]:
+        answer = []
+        newlist = list(range(len(s)+1))
+        l = 0
+        r = len(s)
+        for i in s:
+            if i == "I":
+                answer.append(newlist[l])
+                l += 1
+            else:
+                answer.append(newlist[r])
+                r -= 1
+        answer.append(newlist[r])
+        return answer
+
+class Solution:
+    def diStringMatch(self, s: str) -> List[int]:
+        answer = []
+        l, r = 0, len(s)
+        for i in s:
+            if i == "I":
+                answer.append(l)
+                l += 1
+            else:
+                answer.append(r)
+                r -= 1
+        answer.append(r)
+        return answer
