@@ -3310,3 +3310,17 @@ class Solution:
 class Solution:
     def theMaximumAchievableX(self, num: int, t: int) -> int:
         return num + t + t
+
+# 1221. Split a String in Balanced Strings
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        answer = 0
+        count = 0
+        for i in s:
+            if i == "R":
+                count += 1
+            if i == "L":
+                count -= 1
+            if count == 0:
+                answer += 1
+        return answer
