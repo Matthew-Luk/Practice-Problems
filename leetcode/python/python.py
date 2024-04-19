@@ -3344,3 +3344,14 @@ class OrderedStream:
 # Your OrderedStream object will be instantiated and called as such:
 # obj = OrderedStream(n)
 # param_1 = obj.insert(idKey,value)
+
+# 2373. Largest Local Values in a Matrix
+class Solution:
+    def largestLocal(self, grid: List[List[int]]) -> List[List[int]]:
+        answer = []
+        for i in range(1,len(grid)-1):
+            temp = []
+            for j in range(1,len(grid[i])-1):
+                temp.append(max(grid[i-1][j-1:j+2] + grid[i][j-1:j+2] + grid[i+1][j-1:j+2]))
+            answer.append(temp)
+        return answer
