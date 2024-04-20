@@ -3355,3 +3355,28 @@ class Solution:
                 temp.append(max(grid[i-1][j-1:j+2] + grid[i][j-1:j+2] + grid[i+1][j-1:j+2]))
             answer.append(temp)
         return answer
+
+# 1534. Count Good Triplets
+class Solution:
+    def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+        answer = 0
+        for i in range(len(arr)):
+            for j in range(i+1,len(arr)):
+                for k in range(j+1,len(arr)):
+                    if a >= abs(arr[i] - arr[j]) and b >= abs(arr[j] - arr[k]) and c >= abs(arr[i] - arr[k]):
+                        answer += 1
+        return answer
+
+class Solution:
+    def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+        answer = 0
+        for i in range(len(arr)):
+            for j in range(i+1,len(arr)):
+                if a < abs(arr[i] - arr[j]):
+                    continue
+                for k in range(j+1,len(arr)):
+                    if b < abs(arr[j] - arr[k]):
+                        continue
+                    elif c >= abs(arr[i] - arr[k]):
+                        answer += 1
+        return answer
