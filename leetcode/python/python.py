@@ -3380,3 +3380,30 @@ class Solution:
                     elif c >= abs(arr[i] - arr[k]):
                         answer += 1
         return answer
+
+# 897. Increasing Order Search Tree
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def traversal(self, root):
+        if root == None:
+            return
+        self.traversal(root.left)
+        self.list.append(root.val)
+        self.traversal(root.right)
+
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        self.list = []
+        self.traversal(root)
+        answer = TreeNode(self.list[0])
+        current = answer
+        i = 1
+        while i < len(self.list):
+            current.right = TreeNode(self.list[i])
+            current = current.right
+            i += 1
+        return answer
