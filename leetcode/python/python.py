@@ -3407,3 +3407,21 @@ class Solution:
             current = current.right
             i += 1
         return answer
+
+# 1356. Sort Integers by The Number of 1 Bits
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        answer = []
+        map = {}
+        for i in range(len(arr)):
+            temp = str(bin(arr[i]))
+            if map.get(temp.count("1")) == None:
+                map[temp.count("1")] = [arr[i]]
+            else:
+                map[temp.count("1")].append(arr[i])
+        myKeys = list(map.keys())
+        myKeys.sort()
+        sorted_dict = {i: map[i] for i in myKeys}
+        for i in sorted_dict.values():
+            answer = answer + sorted(i)
+        return answer
