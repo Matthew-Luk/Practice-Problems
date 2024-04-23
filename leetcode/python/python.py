@@ -3425,3 +3425,17 @@ class Solution:
         for i in sorted_dict.values():
             answer = answer + sorted(i)
         return answer
+
+# 1370. Increasing Decreasing String
+class Solution:
+    def sortString(self, s: str) -> str:
+        result = ""
+        s = list(s)
+        while s:
+            for i in sorted(set(s)):
+                s.remove(i)
+                result += i
+            for i in sorted(set(s), reverse=True):
+                s.remove(i)
+                result += i
+        return result
