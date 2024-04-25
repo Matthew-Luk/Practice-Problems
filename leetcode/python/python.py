@@ -3467,3 +3467,11 @@ class Solution:
         if n % 2 == 1:
             answer.append(0)
         return answer
+
+# 231. Power of Two
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        key = []
+        for i in range(32):
+            key.append(2 ** i)
+        return n in key
