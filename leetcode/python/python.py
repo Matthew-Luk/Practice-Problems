@@ -3475,3 +3475,22 @@ class Solution:
         for i in range(32):
             key.append(2 ** i)
         return n in key
+
+# 387. First Unique Character in a String
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        answer = {}
+        for i in range(len(s)):
+            if s.count(s[i]) == 1:
+                return i
+        return -1
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        answer = {}
+        for i in range(len(s)):
+            answer[s[i]] = answer.get(s[i],0) + 1
+        for k, v in answer.items():
+            if v == 1:
+                return s.index(k)
+        return -1
