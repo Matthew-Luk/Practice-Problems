@@ -3494,3 +3494,10 @@ class Solution:
             if v == 1:
                 return s.index(k)
         return -1
+
+# 389. Find the Difference
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        for i in t:
+            if s.count(i) != t.count(i):
+                return i
