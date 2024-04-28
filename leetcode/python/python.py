@@ -3501,3 +3501,39 @@ class Solution:
         for i in t:
             if s.count(i) != t.count(i):
                 return i
+
+# 345. Reverse Vowels of a String
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = "aeiouAEIOU"
+        key = []
+        for i in s:
+            if i in vowels:
+                key.append(i)
+        index = len(key) - 1
+        answer = []
+        for i in s:
+            if i in vowels:
+                answer.append(key[index])
+                index -= 1
+            else:
+                answer.append(i)
+        return "".join(answer)
+
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = "aeiouAEIOU"
+        s = [x for x in s]
+        l = 0
+        r = len(s) -1
+        while l <= r:
+            if s[l] in vowels and s[r] in vowels:
+                s[l], s[r] = s[r], s[l]
+                l += 1
+                r -= 1
+            else:
+                if s[l] not in vowels:
+                    l += 1
+                if s[r] not in vowels:
+                    r -= 1
+        return "".join(s)
