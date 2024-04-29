@@ -3537,3 +3537,9 @@ class Solution:
                 if s[r] not in vowels:
                     r -= 1
         return "".join(s)
+
+# 342. Power of Four
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        key = [4 ** x for x in range(16)]
+        return n in key
