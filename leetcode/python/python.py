@@ -3543,3 +3543,15 @@ class Solution:
     def isPowerOfFour(self, n: int) -> bool:
         key = [4 ** x for x in range(16)]
         return n in key
+
+# 349. Intersection of Two Arrays
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        answer = []
+        nums1, nums2 = list(set(nums1)), list(set(nums2))
+        if len(nums2) > len(nums1):
+            nums1, nums2 = nums2, nums1
+        for i in nums1:
+            if i in nums2 and i not in answer:
+                answer.append(i)
+        return answer
