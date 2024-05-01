@@ -3555,3 +3555,14 @@ class Solution:
             if i in nums2 and i not in answer:
                 answer.append(i)
         return answer
+
+# 350. Intersection of Two Arrays II
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        answer = []
+        if len(nums2) < len(nums1):
+            nums1, nums2 = nums2, nums1
+        for i in nums1:
+            if i in nums2 and answer.count(i) < min(nums1.count(i), nums2.count(i)):
+                answer.append(i)
+        return answer
