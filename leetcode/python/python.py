@@ -3566,3 +3566,18 @@ class Solution:
             if i in nums2 and answer.count(i) < min(nums1.count(i), nums2.count(i)):
                 answer.append(i)
         return answer
+
+# 703. Kth Largest Element in a Stream
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self.list = nums
+        self.k = k
+
+    def add(self, val: int) -> int:
+        self.list.append(val)
+        self.list = sorted(self.list)
+        return self.list[-self.k]
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
