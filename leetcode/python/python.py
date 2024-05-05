@@ -3581,3 +3581,30 @@ class KthLargest:
 # Your KthLargest object will be instantiated and called as such:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
+
+# 747. Largest Number At Least Twice of Others
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        max = [0,0]
+        for i in range(len(nums)):
+            if nums[i] > max[0]:
+                max[0] = nums[i]
+                max[1] = i
+        count = 0
+        for i in nums:
+            if max[0] >= i * 2:
+                count += 1
+        if count == len(nums)-1:
+            return max[1]
+        return -1
+
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        count = 0
+        x = max(nums)
+        for i in nums:
+            if x == i or x >= i * 2:
+                count += 1
+        if count == len(nums):
+            return nums.index(x)
+        return -1
