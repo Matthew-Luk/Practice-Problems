@@ -3608,3 +3608,21 @@ class Solution:
         if count == len(nums):
             return nums.index(x)
         return -1
+
+# 744. Find Smallest Letter Greater Than Target
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        x = [ord(x) for x in letters]
+        target = ord(target)
+        if target < x[0] or target >= x[-1]:
+            return chr(x[0])
+        for i in x:
+            if i > target:
+                return chr(i)
+
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        for letter in letters:
+            if letter > target:
+                return letter
+        return letters[0]
