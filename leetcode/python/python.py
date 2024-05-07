@@ -3626,3 +3626,79 @@ class Solution:
             if letter > target:
                 return letter
         return letters[0]
+
+# 819. Most Common Word
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        map = {}
+        punctuation = "!?',;."
+        for i in paragraph:
+            if i in punctuation:
+                paragraph = paragraph.replace(i, " ")
+        paragraph = paragraph.lower()
+        paragraph = paragraph.split(" ")
+        paragraph = [x for x in paragraph if x != ""]
+        for i in paragraph:
+            if i not in banned:
+                map[i] = map.get(i,0) +1
+        x = max(map.values())
+        for k, v in map.items():
+            if v == x:
+                return k
+
+# 844. Backspace String Compare
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        stack1 = []
+        stack2 = []
+        for i in s:
+            if i != "#":
+                stack1.append(i)
+            else:
+                if stack1:
+                    stack1.pop()
+        for i in t:
+            if i != "#":
+                stack2.append(i)
+            else:
+                if stack2:
+                    stack2.pop()
+        return "".join(stack1) == "".join(stack2)
+
+# 917. Reverse Only Letters
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        if len(s) == 1:
+            return s
+        l = 0
+        r = len(s) -1
+        s = [x for x in s]
+        while l <= r:
+            if s[l] != "-" and s[r] != "-":
+                if s[l].isalpha() and s[r].isalpha():
+                    s[l], s[r] = s[r], s[l]
+                    l += 1
+                    r -= 1
+            if s[l] == "-" or s[l].isalpha() == False:
+                l += 1
+            if s[r] == "-" or s[r].isalpha() == False:
+                r -= 1
+        return "".join(s)
+
+# 896. Monotonic Array
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        return nums == sorted(nums) or nums == sorted(nums, reverse=True)
+
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        if nums[0] < nums[-1]:
+            for i in range(1,len(nums)):
+                if nums[i-1] > nums[i]:
+                    return False
+            return True
+        else:
+            for i in range(1,len(nums)):
+                if nums[i-1] < nums[i]:
+                    return False
+            return True
