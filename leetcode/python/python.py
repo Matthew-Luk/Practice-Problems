@@ -3702,3 +3702,21 @@ class Solution:
                 if nums[i-1] < nums[i]:
                     return False
             return True
+
+# 961. N-Repeated Element in Size 2N Array
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        map = {}
+        for i in nums:
+            map[i] = map.get(i,0) + 1
+            if map[i] == 2:
+                return i
+
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        list = []
+        for i in nums:
+            if i in list:
+                return i
+            if i not in list:
+                list.append(i)
