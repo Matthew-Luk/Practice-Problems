@@ -3720,3 +3720,31 @@ class Solution:
                 return i
             if i not in list:
                 list.append(i)
+
+# 1154. Day of the Year
+class Solution:
+    def isLeapYear(self, year):
+        year = int(year)
+        if year % 400 == 0 or year % 4 == 0 and year % 100 != 0:
+            return True
+
+    def dayOfYear(self, date: str) -> int:
+        month = {
+            "01": 0,
+            "02": 31,
+            "03": 59,
+            "04": 90,
+            "05": 120,
+            "06": 151,
+            "07": 181,
+            "08": 212,
+            "09": 243,
+            "10": 273,
+            "11": 304,
+            "12": 334,
+        }
+
+        answer = month[date[5:7]] + int(date[8:10])
+        if self.isLeapYear(date[0:4]) and int(date[5:7]) > 2:
+            answer += 1
+        return answer
