@@ -3748,3 +3748,14 @@ class Solution:
         if self.isLeapYear(date[0:4]) and int(date[5:7]) > 2:
             answer += 1
         return answer
+
+# 1047. Remove All Adjacent Duplicates In String
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        stack = []
+        for i in range(len(s)):
+            if stack == [] or s[i] != stack[-1]:
+                stack.append(s[i])
+            else:
+                stack.pop()
+        return "".join(stack)
