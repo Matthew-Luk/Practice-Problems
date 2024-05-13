@@ -3769,3 +3769,14 @@ class Solution:
             if text[i] == first and text[i+1] == second:
                 answer.append(text[i+2])
         return answer
+
+# 1385. Find the Distance Value Between Two Arrays
+class Solution:
+    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        answer = len(arr1)
+        for i in arr1:
+            for j in arr2:
+                if abs(i - j) <= d:
+                    answer -= 1
+                    break
+        return answer
