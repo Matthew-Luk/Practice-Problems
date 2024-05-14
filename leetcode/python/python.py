@@ -3780,3 +3780,26 @@ class Solution:
                     answer -= 1
                     break
         return answer
+
+# 1417. Reformat The String
+class Solution:
+    def reformat(self, s: str) -> str:
+        answer = ""
+        i = 0
+        if len(s) == 1:
+            return s
+        numbers = [x for x in s if x.isnumeric()]
+        string = [x for x in s if x.isalpha()]
+        if s.isalpha() or s.isnumeric() or abs(len(numbers) - len(string)) >= 2:
+            return answer
+        if len(numbers) > len(string):
+            shorter, longer = string, numbers
+        else:
+            shorter, longer = numbers, string
+        while i < len(s):
+            if i < len(longer):
+                answer += longer[i]
+            if i < len(shorter):
+                answer += shorter[i]
+            i += 1
+        return answer
