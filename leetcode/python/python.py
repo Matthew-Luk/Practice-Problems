@@ -3809,3 +3809,17 @@ class Solution:
     def average(self, salary: List[int]) -> float:
         total = sum(salary) - max(salary) - min(salary)
         return total / (len(salary)-2)
+
+# 1446. Consecutive Characters
+class Solution:
+    def maxPower(self, s: str) -> int:
+        answer = 1
+        count = 1
+        for i in range(1,len(s)):
+            if s[i] == s[i-1]:
+                count += 1
+                if count > answer:
+                    answer = count
+            else:
+                count = 1
+        return answer
