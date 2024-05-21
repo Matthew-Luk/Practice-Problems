@@ -3831,3 +3831,15 @@ class Solution:
             if int(num[i]) % 2 == 1:
                 return num[:i+1]
         return ""
+
+# 1716. Calculate Money in Leetcode Bank
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        days = n % 7
+        weeks = n // 7
+        answer = 0
+        for i in range(weeks):
+            answer += 28 + (i*7)
+        for i in range(1, days+1):
+            answer += i + (weeks)
+        return answer
