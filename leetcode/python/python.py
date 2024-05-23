@@ -3843,3 +3843,15 @@ class Solution:
         for i in range(1, days+1):
             answer += i + (weeks)
         return answer
+
+# 1796. Second Largest Digit in a String
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        numbers = []
+        for i in s:
+            if i.isnumeric() and int(i) not in numbers:
+                numbers.append(int(i))
+        numbers = sorted(numbers)
+        if len(numbers) < 2:
+            return -1
+        return numbers[-2]
