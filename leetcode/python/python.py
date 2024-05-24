@@ -3855,3 +3855,16 @@ class Solution:
         if len(numbers) < 2:
             return -1
         return numbers[-2]
+
+# 1800. Maximum Ascending Subarray Sum
+class Solution:
+    def maxAscendingSum(self, nums: List[int]) -> int:
+        answer = nums[0]
+        temp = nums[0]
+        for i in range(1,len(nums)):
+            if nums[i-1] < nums[i]:
+                temp += nums[i]
+                answer = max(temp, answer)
+            else:
+                temp = nums[i]
+        return answer
