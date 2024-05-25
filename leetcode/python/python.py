@@ -3868,3 +3868,12 @@ class Solution:
             else:
                 temp = nums[i]
         return answer
+
+# 2778. Sum of Squares of Special Elements
+class Solution:
+    def sumOfSquares(self, nums: List[int]) -> int:
+        answer = 0
+        for i in range(len(nums)):
+            if len(nums) % (i + 1) == 0:
+                answer += nums[i]**2
+        return answer
