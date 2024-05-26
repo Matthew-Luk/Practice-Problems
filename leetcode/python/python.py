@@ -3877,3 +3877,15 @@ class Solution:
             if len(nums) % (i + 1) == 0:
                 answer += nums[i]**2
         return answer
+
+# 2341. Maximum Number of Pairs in Array
+class Solution:
+    def numberOfPairs(self, nums: List[int]) -> List[int]:
+        map = {}
+        answer = [0,0]
+        for i in nums:
+            map[i] = map.get(i,0) +1
+        for k,v in map.items():
+            answer[0] += v // 2
+            answer[1] += v % 2
+        return answer
