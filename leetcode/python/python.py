@@ -3889,3 +3889,16 @@ class Solution:
             answer[0] += v // 2
             answer[1] += v % 2
         return answer
+
+# 2570. Merge Two 2D Arrays by Summing Values
+class Solution:
+    def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
+        i = 0
+        map = {}
+        while i < max(len(nums1), len(nums2)):
+            if i < len(nums1):
+                map[nums1[i][0]] = map.get(nums1[i][0], 0) + nums1[i][1]
+            if i < len(nums2):
+                map[nums2[i][0]] = map.get(nums2[i][0], 0) + nums2[i][1]
+            i += 1
+        return sorted([[k,v] for k,v in map.items()])
