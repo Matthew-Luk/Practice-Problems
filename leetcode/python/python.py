@@ -3902,3 +3902,40 @@ class Solution:
                 map[nums2[i][0]] = map.get(nums2[i][0], 0) + nums2[i][1]
             i += 1
         return sorted([[k,v] for k,v in map.items()])
+
+# 2357. Make Array Zero by Subtracting Equal Amounts
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        answer = 0
+        while sum(nums) != 0:
+            nums = sorted(nums)
+            for i in nums:
+                if i != 0:
+                    minVal = i
+            for i in range(len(nums)):
+                if nums[i] != 0:
+                    nums[i] = nums[i] - minVal
+            answer += 1
+        return answer
+
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        answer = 0
+        heapify(nums)
+
+        while nums:
+            if nums[0] == 0:
+                heappop(nums)
+            else:
+                answer += 1
+                nums = [x - nums[0] for x in nums]
+
+        return answer
+
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        answer = set()
+        for i in nums:
+            if i not in answer and i != 0:
+                answer.add(i)
+        return len(answer)
