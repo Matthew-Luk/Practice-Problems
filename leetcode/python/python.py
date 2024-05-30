@@ -3939,3 +3939,21 @@ class Solution:
             if i not in answer and i != 0:
                 answer.add(i)
         return len(answer)
+
+# 1403. Minimum Subsequence in Non-Increasing Order
+class Solution:
+    def minSubsequence(self, nums: List[int]) -> List[int]:
+        nums = sorted(nums, reverse=True)
+        if len(set(nums)) == 1:
+            return nums
+        for i in range(len(nums)):
+            if sum(nums[:i]) > sum(nums[i:]):
+                return nums[:i]
+
+class Solution:
+    def minSubsequence(self, nums: List[int]) -> List[int]:
+        nums = sorted(nums, reverse=True)
+        for i in range(1,len(nums)):
+            if sum(nums[:i]) > sum(nums[i:]):
+                return nums[:i]
+        return nums
