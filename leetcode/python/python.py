@@ -3957,3 +3957,17 @@ class Solution:
             if sum(nums[:i]) > sum(nums[i:]):
                 return nums[:i]
         return nums
+
+# 118. Pascal's Triangle
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        answer = []
+        for i in range(1,numRows+1):
+            if i <= 2:
+                temp = [1] * i
+            else:
+                temp = [1] * i
+                for i in range(1,len(temp)-1):
+                    temp[i] = answer[-1][i] + answer[-1][i-1]
+            answer.append(temp)
+        return answer
