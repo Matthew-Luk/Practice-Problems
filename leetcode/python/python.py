@@ -3971,3 +3971,95 @@ class Solution:
                     temp[i] = answer[-1][i] + answer[-1][i-1]
             answer.append(temp)
         return answer
+
+# 2788. Split Strings by Separator
+class Solution:
+    def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
+        answer = []
+        for i in words:
+            i = i.split(separator)
+            for j in i:
+                if j != "":
+                    answer.append(j)
+        return answer
+
+# 2475. Number of Unequal Triplets in Array
+class Solution:
+    def unequalTriplets(self, nums: List[int]) -> int:
+        answer = 0
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                for k in range(j+1, len(nums)):
+                    if nums[i] != nums[j] and nums[i] != nums[k] and nums[j] != nums[k]:
+                        answer += 1
+        return answer
+
+# 1779. Find Nearest Point That Has the Same X or Y Coordinate
+class Solution:
+    def nearestValidPoint(self, x: int, y: int, points: List[List[int]]) -> int:
+        answer = -1
+        min_distance = float("inf")
+        for i in range(len(points)):
+            if points[i][0] == x or points[i][1] == y:
+                if abs(x-points[i][0]) + abs(y-points[i][1]) < min_distance:
+                    answer = i
+                    min_distance = abs(x-points[i][0]) + abs(y-points[i][1])
+        return answer
+
+# 476. Number Complement
+class Solution:
+    def findComplement(self, num: int) -> int:
+        binary = []
+        answer = 0
+        while num > 0:
+            if num % 2 == 1:
+                binary.append(0)
+            else:
+                binary.append(1)
+            num = num // 2
+        for i in range(len(binary)):
+            answer += (binary[i]*2**i)
+        return answer
+
+# 191. Number of 1 Bits
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        answer = 0
+        while n > 0:
+            if n % 2 == 1:
+                answer += 1
+            n = n // 2
+        return answer
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        answer = 0
+        while n:
+            if n & 1:
+                answer += 1
+            n = n >> 1
+        return answer
+
+# 190. Reverse Bits
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        binary = [0] * 32
+        answer = 0
+        i = 0
+        while n > 0:
+            binary[i] = n % 2
+            n = n // 2
+            i += 1
+        binary = binary[::-1]
+        for i in range(len(binary)):
+            answer += (binary[i]*2**i)
+        return answer
+
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        res=0
+        for i in range(32):
+            res=res<<1
+            res+=n%2
+            n=n>>1
+        return res
