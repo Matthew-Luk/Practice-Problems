@@ -4063,3 +4063,28 @@ class Solution:
             res+=n%2
             n=n>>1
         return res
+
+# 1507. Reformat Date
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        month = {
+            "Jan":"01",
+            "Feb":"02",
+            "Mar":"03",
+            "Apr":"04",
+            "May":"05",
+            "Jun":"06",
+            "Jul":"07",
+            "Aug":"08",
+            "Sep":"09",
+            "Oct":"10",
+            "Nov":"11",
+            "Dec":"12"
+        }
+        date = date.split(" ")
+        if len(date[0]) < 4:
+            day = "0" + date[0][0]
+        else:
+            day = date[0][:2]
+        answer = date[2] + "-" + month[date[1]] + "-" + day
+        return answer
