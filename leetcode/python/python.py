@@ -3139,6 +3139,19 @@ class Solution:
             k -= 1
         return sum(gifts)
 
+class Solution:
+    def pickGifts(self, gifts: List[int], k: int) -> int:
+        gifts = [-x for x in gifts]
+        heapify(gifts)
+
+        while k > 0:
+            x = heappop(gifts) * -1
+            x = math.sqrt(x) // 1
+            heappush(gifts, x * -1)
+            k -= 1
+
+        return int(sum(gifts) * -1)
+
 # 2441. Largest Positive Integer That Exists With Its Negative
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
