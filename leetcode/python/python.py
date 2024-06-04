@@ -1495,6 +1495,21 @@ class Solution:
                 stones.pop()
         return 0
 
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        stones = [-x for x in stones]
+        heapify(stones)
+
+        while len(stones) > 1:
+            y = heappop(stones) * - 1
+            x = heappop(stones) * - 1
+            if x != y:
+                stones.append(abs(y - x) * -1)
+
+        if len(stones) == 0:
+            return 0
+        return stones[0] * -1
+
 # 242. Valid Anagram
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
