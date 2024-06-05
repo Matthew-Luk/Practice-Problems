@@ -4116,3 +4116,29 @@ class Solution:
             day = date[0][:2]
         answer = date[2] + "-" + month[date[1]] + "-" + day
         return answer
+
+# 884. Uncommon Words from Two Sentences
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        answer = []
+        s1 = s1.split(" ")
+        s2 = s2.split(" ")
+        for i in s1:
+            if s1.count(i) == 1 and s2.count(i) == 0:
+                answer.append(i)
+        for i in s2:
+            if s2.count(i) == 1 and s1.count(i) == 0:
+                answer.append(i)
+        return answer
+
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        map = {}
+        answer = []
+        str = (s1 + " " + s2).split(" ")
+        for i in str:
+            map[i] = map.get(i,0) + 1
+        for k,v in map.items():
+            if v == 1:
+                answer.append(k)
+        return answer
