@@ -4153,3 +4153,16 @@ class Solution:
                 if sentence[i-1] != sentence[i+1]:
                     return False
         return True
+
+# 2129. Capitalize the Title
+class Solution:
+    def capitalizeTitle(self, title: str) -> str:
+        title = title.lower()
+        title = title.split(" ")
+        answer = ""
+        for i in title:
+            if len(i) > 2:
+                answer += i.capitalize() + " "
+            else:
+                answer += i + " "
+        return answer[:-1]
