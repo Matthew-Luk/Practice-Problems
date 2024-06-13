@@ -4166,3 +4166,26 @@ class Solution:
             else:
                 answer += i + " "
         return answer[:-1]
+
+# 868. Binary Gap
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        distance = []
+        binary = []
+        while n > 0:
+            binary.append(n%2)
+            n = n // 2
+        flag = False
+        temp = 0
+        for i in binary:
+            if flag and i == 1:
+                distance.append(temp)
+                temp = 0
+                flag = False
+            if i == 1:
+                flag = True
+            if flag:
+                temp += 1
+        if distance == []:
+            return 0
+        return max(distance)
