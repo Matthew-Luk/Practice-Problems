@@ -4189,3 +4189,10 @@ class Solution:
         if distance == []:
             return 0
         return max(distance)
+
+# 2549. Count Distinct Numbers on Board
+class Solution:
+    def distinctIntegers(self, n: int) -> int:
+        if n == 1:
+            return 1
+        return n-1
