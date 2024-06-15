@@ -4196,3 +4196,15 @@ class Solution:
         if n == 1:
             return 1
         return n-1
+
+# 1331. Rank Transform of an Array
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        map = {}
+        answer = []
+        newarr = sorted(set(arr))
+        for i in range(len(newarr)):
+            map[newarr[i]] = i + 1
+        for i in arr:
+            answer.append(map[i])
+        return answer
