@@ -4208,3 +4208,17 @@ class Solution:
         for i in arr:
             answer.append(map[i])
         return answer
+
+# 1995. Count Special Quadruplets
+class Solution:
+    def countQuadruplets(self, nums: List[int]) -> int:
+        answer = 0
+        if len(nums) < 4:
+            return answer
+        for a in range(len(nums)):
+            for b in range(a+1,len(nums)):
+                for c in range(b+1,len(nums)):
+                    for d in range(c+1,len(nums)):
+                        if nums[a] + nums[b] + nums[c] == nums[d]:
+                            answer += 1
+        return answer
