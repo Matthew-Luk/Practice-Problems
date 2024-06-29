@@ -4222,3 +4222,16 @@ class Solution:
                         if nums[a] + nums[b] + nums[c] == nums[d]:
                             answer += 1
         return answer
+
+# 2264. Largest 3-Same-Digit Number in String
+class Solution:
+    def largestGoodInteger(self, num: str) -> str:
+        answer = []
+        for i in range(len(num)-2):
+            if num[i] == num[i+1] == num[i+2]:
+                answer.append(int(num[i:i+3]))
+        if answer == []:
+            return ""
+        elif max(answer) == 0:
+            return "000"
+        return str(max(answer))
