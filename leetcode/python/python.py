@@ -4235,3 +4235,18 @@ class Solution:
         elif max(answer) == 0:
             return "000"
         return str(max(answer))
+
+# 383. Ransom Note
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        map = {}
+        for i in magazine:
+            map[i] = map.get(i,0) + 1
+        for i in ransomNote:
+            if map.get(i) == None:
+                return False
+            else:
+                map[i] = map.get(i) -1
+                if map[i] < 0:
+                    return False
+        return True
