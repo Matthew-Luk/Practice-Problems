@@ -4250,3 +4250,36 @@ class Solution:
                 if map[i] < 0:
                     return False
         return True
+
+# 1399. Count Largest Group
+class Solution:
+    def countLargestGroup(self, n: int) -> int:
+        map = {}
+        answer = 0
+        for i in range(1,n+1):
+            temp = [int(x) for x in str(i)]
+            if map.get(sum(temp)) == None:
+                map[sum(temp)] = [i]
+            else:
+                map[sum(temp)].append(i)
+        lengths = [len(v) for k,v in map.items()]
+        max_num = max(lengths)
+        for i in lengths:
+            if i == max_num:
+                answer += 1
+        return answer
+
+class Solution:
+    def countLargestGroup(self, n: int) -> int:
+        map = {}
+        answer = 0
+        max_num = 0
+        for i in range(1,n+1):
+            temp = [int(x) for x in str(i)]
+            map[sum(temp)] = map.get(sum(temp),0) + 1
+            if map[sum(temp)] > max_num:
+                max_num = map[sum(temp)]
+        for k,v in map.items():
+            if v == max_num:
+                answer += 1
+        return answer
