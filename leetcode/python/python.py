@@ -4283,3 +4283,31 @@ class Solution:
             if v == max_num:
                 answer += 1
         return answer
+
+# 806. Number of Lines To Write String
+class Solution:
+    def numberOfLines(self, widths: List[int], s: str) -> List[int]:
+        answer = []
+        temp = 0
+        for i in s:
+            i = ord(i)-97
+            if widths[i] + temp <= 100:
+                temp += widths[i]
+            else:
+                answer.append(temp)
+                temp = 0
+                temp += widths[i]
+        answer.append(temp)
+        return [len(answer),answer[-1]]
+
+class Solution:
+    def numberOfLines(self, widths: List[int], s: str) -> List[int]:
+        answer = []
+        temp = 0
+        for i in s:
+            i = ord(i)-97
+            if widths[i] + temp > 100:
+                answer.append(temp)
+                temp = 0
+            temp += widths[i]
+        return [len(answer)+1,temp]
