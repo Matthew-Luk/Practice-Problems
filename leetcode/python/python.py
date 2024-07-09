@@ -4311,3 +4311,25 @@ class Solution:
                 temp = 0
             temp += widths[i]
         return [len(answer)+1,temp]
+
+# 429. N-ary Tree Level Order Traversal
+# Definition for a Node.
+# class Node:
+#     def __init__(self, val=None, children=None):
+#         self.val = val
+#         self.children = children
+
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        answer = defaultdict(list)
+
+        def dfs(node, level):
+            if not node:
+                return
+            answer[level].append(node.val)
+            for i in node.children:
+                dfs(i,level+1)
+        
+        dfs(root,0)
+
+        return [lst for k,lst in answer.items()]
