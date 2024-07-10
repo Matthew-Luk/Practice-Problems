@@ -4333,3 +4333,25 @@ class Solution:
         dfs(root,0)
 
         return [lst for k,lst in answer.items()]
+
+# 589. N-ary Tree Preorder Traversal
+# Definition for a Node.
+# class Node:
+#     def __init__(self, val=None, children=None):
+#         self.val = val
+#         self.children = children
+
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        answer = []
+
+        def traversal(node):
+            if not node:
+                return
+            answer.append(node.val)
+            for i in node.children:
+                traversal(i)
+        
+        traversal(root)
+
+        return answer
