@@ -4384,3 +4384,15 @@ class Solution:
             if s[i] != s[i+1] and s[i] != s[i+2] and s[i+1] != s[i+2]:
                 answer += 1
         return answer
+
+# 1394. Find Lucky Integer in an Array
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        answer = -1
+        map = {}
+        for i in arr:
+            map[i] = map.get(i,0) + 1
+        for k, v in map.items():
+            if k == v and k > answer:
+                answer = k
+        return answer
