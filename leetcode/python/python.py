@@ -4396,3 +4396,18 @@ class Solution:
             if k == v and k > answer:
                 answer = k
         return answer
+
+# 1380. Lucky Numbers in a Matrix
+class Solution:
+    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
+        min_nums = []
+        answer = []
+        for i in matrix:
+            min_nums.append(min(i))
+        for i in range(len(matrix[0])):
+            temp = []
+            for j in range(len(matrix)):
+                temp.append(matrix[j][i])
+            if (max(temp)) in min_nums:
+                answer.append(max(temp))
+        return answer
