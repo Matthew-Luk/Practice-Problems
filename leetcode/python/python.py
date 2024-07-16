@@ -4411,3 +4411,43 @@ class Solution:
             if (max(temp)) in min_nums:
                 answer.append(max(temp))
         return answer
+
+# 965. Univalued Binary Tree
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        node_vals = []
+        def traversal(node):
+            if not node:
+                return
+            node_vals.append(node.val)
+            traversal(node.left)
+            traversal(node.right)
+        traversal(root)
+        check = node_vals[0]
+        for i in node_vals:
+            if i != check:
+                return False
+        return True
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        if root.left != None and root.left.val != root.val:
+            return False
+        if root.right != None and root.right.val != root.val:
+            return False
+        
+        return self.isUnivalTree(root.left) and self.isUnivalTree(root.right)
