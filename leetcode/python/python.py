@@ -4451,3 +4451,18 @@ class Solution:
             return False
         
         return self.isUnivalTree(root.left) and self.isUnivalTree(root.right)
+
+# 2224. Minimum Number of Operations to Convert Time
+class Solution:
+    def convertTime(self, current: str, correct: str) -> int:
+        times = [60,15,5,1]
+        current_min = int(current[0:2]) * 60 + int(current[3:5])
+        correct_min = int(correct[0:2]) * 60 + int(correct[3:5])
+        diff = correct_min - current_min
+
+        answer = 0
+        for i in times:
+            while diff >= i:
+                answer += 1
+                diff -= i
+        return answer
