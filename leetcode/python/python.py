@@ -4474,3 +4474,19 @@ class Solution:
         if prices[0] + prices[1] <= money:
             return money - (prices[0] + prices[1])
         return money
+
+# 2347. Best Poker Hand
+class Solution:
+    def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        hand = {}
+        if len(set(suits)) == 1:
+            return "Flush"
+        for i in ranks:
+            hand[i] = hand.get(i,0) + 1
+        answer = "High Card"
+        for k,v in hand.items():
+            if v >= 3:
+                answer = "Three of a Kind"
+            elif v == 2 and answer == "High Card":
+                answer = "Pair"
+        return answer
