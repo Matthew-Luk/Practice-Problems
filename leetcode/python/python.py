@@ -4490,3 +4490,20 @@ class Solution:
             elif v == 2 and answer == "High Card":
                 answer = "Pair"
         return answer
+
+# 1009. Complement of Base 10 Integer
+class Solution:
+    def bitwiseComplement(self, n: int) -> int:
+        binary = []
+        answer = 0
+        if n == 0:
+            return 1
+        while n > 0:
+            if n%2 == 1:
+                binary.append(0)
+            else:
+                binary.append(1)
+            n = n // 2
+        for i in range(len(binary)):
+            answer += (binary[i]*2**i)
+        return answer
