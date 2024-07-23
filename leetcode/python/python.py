@@ -4507,3 +4507,14 @@ class Solution:
         for i in range(len(binary)):
             answer += (binary[i]*2**i)
         return answer
+
+# 1539. Kth Missing Positive Number
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
+        key = []
+        for i in range(1,max(arr)+k+1):
+            if len(key) == k:
+                break
+            if i not in arr:
+                key.append(i)
+        return key[-1]
