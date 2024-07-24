@@ -4518,3 +4518,19 @@ class Solution:
             if i not in arr:
                 key.append(i)
         return key[-1]
+
+# 2451. Odd String Difference
+class Solution:
+    def oddString(self, words: List[str]) -> str:
+        key = []
+        for i in range(len(words)):
+            temp = []
+            for j in range(len(words[i])-1):
+                difference = ord(words[i][j+1]) - ord(words[i][j])
+                temp.append(difference)
+            key.append(temp)
+        index = 0
+        for i in range(len(key)):
+            if key.count(key[i]) == 1:
+                index = i
+        return words[index]
