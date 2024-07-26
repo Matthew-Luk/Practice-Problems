@@ -4534,3 +4534,30 @@ class Solution:
             if key.count(key[i]) == 1:
                 index = i
         return words[index]
+
+# 2299. Strong Password Checker II
+class Solution:
+    def strongPasswordCheckerII(self, password: str) -> bool:
+        validation = set()
+        special = "!@#$%^&*()-+"
+
+        if len(password) < 8:
+            return False
+
+        def check(c):
+            if c in special:
+                validation.add(1)
+            elif c.isupper():
+                validation.add(2)
+            elif c.islower():
+                validation.add(3)
+            elif c.isnumeric():
+                validation.add(4)
+
+        for i in range(len(password)-1):
+            if password[i] == password[i+1]:
+                return False
+            check(password[i])
+        check(password[-1])
+        
+        return len(validation) == 4
