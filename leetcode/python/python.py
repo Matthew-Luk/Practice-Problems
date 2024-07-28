@@ -4561,3 +4561,22 @@ class Solution:
         check(password[-1])
         
         return len(validation) == 4
+
+# 1496. Path Crossing
+class Solution:
+    def isPathCrossing(self, path: str) -> bool:
+        route = [[0,0]]
+        for i in path:
+            temp = route[-1]
+            if i == "N":
+                temp = [temp[0]+1,temp[1]]
+            elif i == "S":
+                temp = [temp[0]-1,temp[1]]
+            elif i == "E":
+                temp = [temp[0],temp[1]+1]
+            elif i == "W":
+                temp = [temp[0],temp[1]-1]
+            if temp in route:
+                return True
+            route.append(temp)
+        return False
