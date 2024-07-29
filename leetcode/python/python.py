@@ -4580,3 +4580,12 @@ class Solution:
                 return True
             route.append(temp)
         return False
+
+# 2798. Number of Employees Who Met the Target
+class Solution:
+    def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
+        answer = 0
+        for i in hours:
+            if i >= target:
+                answer += 1
+        return answer
