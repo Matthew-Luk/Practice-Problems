@@ -4589,3 +4589,15 @@ class Solution:
             if i >= target:
                 answer += 1
         return answer
+
+# 1266. Minimum Time Visiting All Points
+class Solution:
+    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+        answer = 0
+        for i in range(1,len(points)):
+            if abs(points[i-1][0] - points[i][0]) > abs(points[i-1][1] - points[i][1]):
+                temp = points[i-1][0] - points[i][0]
+            else:
+                temp = points[i-1][1] - points[i][1]
+            answer += abs(temp)
+        return answer
