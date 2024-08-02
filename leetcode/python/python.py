@@ -4601,3 +4601,51 @@ class Solution:
                 temp = points[i-1][1] - points[i][1]
             answer += abs(temp)
         return answer
+
+# 1837. Sum of Digits in Base K
+class Solution:
+    def sumBase(self, n: int, k: int) -> int:
+        answer = []
+        while n > 0:
+            answer.append(n % k)
+            n = n // k
+        return sum(answer)
+
+# 2. Add Two Numbers
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def convertToInt(self, arr):
+        result = 0
+        for i in range(len(arr)):
+            result += (arr[i]*10**i)
+        return result
+
+    def convertToList(self, int):
+        list = []
+        while int > 0:
+            list.append(int%10)
+            int = int // 10
+        return list
+
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        list1, list2 = [], []
+        runner, runner2 = l1, l2
+        while runner:
+            list1.append(runner.val)
+            runner = runner.next
+        while runner2:
+            list2.append(runner2.val)
+            runner2 = runner2.next
+        sum = self.convertToInt(list1) + self.convertToInt(list2)
+        newList = self.convertToList(sum)
+        answer = runner = ListNode(0)
+        if newList == []:
+            return answer
+        for i in newList:
+            runner.next = ListNode(i)
+            runner = runner.next
+        return answer.next
