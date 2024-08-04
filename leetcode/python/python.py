@@ -4649,3 +4649,15 @@ class Solution:
             runner.next = ListNode(i)
             runner = runner.next
         return answer.next
+
+# 2190. Most Frequent Number Following Key In an Array
+class Solution:
+    def mostFrequent(self, nums: List[int], key: int) -> int:
+        map = {}
+        for i in range(len(nums)-1):
+            if nums[i] == key:
+                map[nums[i+1]] = map.get(nums[i+1],0) +1
+        temp = max(map.values())
+        for k,v in map.items():
+            if v == temp:
+                return k
