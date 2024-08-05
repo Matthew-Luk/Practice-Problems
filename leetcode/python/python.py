@@ -4661,3 +4661,20 @@ class Solution:
         for k,v in map.items():
             if v == temp:
                 return k
+
+# 1287. Element Appearing More Than 25% In Sorted Array
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        for i in arr:
+            if arr.count(i) > len(arr) // 4:
+                return i
+
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        map = {}
+        for i in arr:
+            map[i] = map.get(i,0) + 1
+        temp = max(map.values())
+        for k,v in map.items():
+            if v == temp:
+                return k
