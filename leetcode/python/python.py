@@ -4678,3 +4678,14 @@ class Solution:
         for k,v in map.items():
             if v == temp:
                 return k
+
+# 1437. Check If All 1's Are at Least Length K Places Away
+class Solution:
+    def kLengthApart(self, nums: List[int], k: int) -> bool:
+        map = []
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                map.append(i)
+                if len(map) > 1 and i - map[-2] <= k:
+                    return False 
+        return True
