@@ -4689,3 +4689,16 @@ class Solution:
                 if len(map) > 1 and i - map[-2] <= k:
                     return False 
         return True
+
+# 2465. Number of Distinct Averages
+class Solution:
+    def distinctAverages(self, nums: List[int]) -> int:
+        answer = []
+        nums = sorted(nums)
+        l = 0
+        r = len(nums) -1
+        while l < r:
+            answer.append((nums[l] + nums[r]) / 2)
+            l += 1
+            r -= 1
+        return len(set(answer))
