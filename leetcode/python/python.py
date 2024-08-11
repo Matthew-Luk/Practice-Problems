@@ -4702,3 +4702,18 @@ class Solution:
             l += 1
             r -= 1
         return len(set(answer))
+
+# 2287. Rearrange Characters to Make Target String
+class Solution:
+    def rearrangeCharacters(self, s: str, target: str) -> int:
+        map = {}
+        answer = float("inf")
+        for i in s:
+            if i in target:
+                map[i] = map.get(i,0) + 1
+        for k,v in map.items():
+            if v // target.count(k) < answer:
+                answer = v // target.count(k)
+        if answer == float("inf") or len(map) < len(set(target)):
+            return 0
+        return answer
