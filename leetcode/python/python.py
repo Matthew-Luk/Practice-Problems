@@ -4717,3 +4717,37 @@ class Solution:
         if answer == float("inf") or len(map) < len(set(target)):
             return 0
         return answer
+
+# 415. Add Strings
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        if num1 == "0":
+            return num2
+        elif num2 == "0":
+            return num1
+        num1, num2 = num1[::-1], num2[::-1]
+        num_1, num_2 = 0, 0
+        for i in range(len(num1)):
+            num_1 += (ord(num1[i]) - ord("0")) * 10 ** i
+        for i in range(len(num2)):
+            num_2 += (ord(num2[i]) - ord("0")) * 10 ** i
+        temp1 = num_1 + num_2
+        answer = ""
+        temp2 = []
+        while temp1 > 0:
+            temp2.append(temp1%10)
+            temp1 = temp1 // 10
+        for i in temp2:
+            answer += (chr(48+i))
+        return answer[::-1]
+
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        num1, num2 = num1[::-1], num2[::-1]
+        num_1, num_2 = 0, 0
+        for i in range(len(num1)):
+            num_1 += (ord(num1[i]) - ord("0")) * 10 ** i
+        for i in range(len(num2)):
+            num_2 += (ord(num2[i]) - ord("0")) * 10 ** i
+        answer = num_1 + num_2
+        return str(answer)
