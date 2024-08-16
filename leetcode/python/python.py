@@ -4788,3 +4788,32 @@ class Solution:
         
         traverse(root)
         return len(answer)
+
+# 414. Third Maximum Number
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        nums = sorted(list(set(nums)))
+        if len(nums) < 3:
+            return nums[-1]
+        else:
+            return nums[-3]
+
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        first = float("-inf")
+        second = float("-inf")
+        answer = float("-inf")
+        for i in nums:
+            if i > first:
+                first = i
+        for i in nums:
+            if i > second and i != first:
+                second = i
+        for i in nums:
+            if i > answer and i < second:
+                answer = i
+        if answer == float("-inf"):
+            if first == 0:
+                return second
+            return first
+        return answer
