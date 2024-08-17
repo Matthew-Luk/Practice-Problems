@@ -4817,3 +4817,22 @@ class Solution:
                 return second
             return first
         return answer
+
+# 409. Longest Palindrome
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        map = {}
+        answer = 0
+        for i in s:
+            map[i] = map.get(i,0) + 1
+        flag = False
+        for v in map.values():
+            if v % 2 == 0:
+                answer += v
+            else:
+                flag = True
+                v -= 1
+                answer += v
+        if flag:
+            answer += 1
+        return answer
