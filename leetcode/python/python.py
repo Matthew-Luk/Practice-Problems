@@ -4836,3 +4836,23 @@ class Solution:
         if flag:
             answer += 1
         return answer
+
+# 482. License Key Formatting
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        license = []
+        for i in s:
+            if i != "-":
+                license.append(i)
+        license = license[::-1]
+        answer = ""
+        for i in range(len(license)):
+            answer += license[i].upper()
+            if (i + 1) % k == 0:
+                answer += "-"
+        answer = answer[::-1]
+        if answer == "":
+            return ""
+        if answer[0] == "-":
+            answer = answer[1:]
+        return answer
