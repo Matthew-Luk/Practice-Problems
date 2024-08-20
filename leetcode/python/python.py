@@ -4856,3 +4856,58 @@ class Solution:
         if answer[0] == "-":
             answer = answer[1:]
         return answer
+
+# 762. Prime Number of Set Bits in Binary Representation
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        def convertToBit(x):
+            bin = []
+            while x > 0:
+                bin.append(x%2)
+                x = x // 2
+            return bin.count(1)
+        
+        def isPrime(x):
+            if x == 1:
+                return False
+            elif x > 1:
+                for i in range(2, x):
+                    if (x % i) == 0:
+                        return False
+            return True
+
+        answer = 0
+        for i in range(left, right+1):
+            temp = convertToBit(i)
+            if isPrime(temp):
+                answer += 1
+        return answer
+
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        answer = 0
+        prime = [2,3,5,7,11,13,17,19]
+
+        def convertToBit(x):
+            bin = []
+            while x > 0:
+                bin.append(x%2)
+                x = x // 2
+            return bin.count(1)
+        
+        for i in range(left, right+1):
+            temp = convertToBit(i)
+            if temp in prime:
+                answer += 1
+        return answer
+
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        answer = 0
+        prime = [2,3,5,7,11,13,17,19]
+
+        for i in range(left, right+1):
+            temp = bin(i).count("1")
+            if temp in prime:
+                answer += 1
+        return answer
