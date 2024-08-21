@@ -4911,3 +4911,25 @@ class Solution:
             if temp in prime:
                 answer += 1
         return answer
+
+# 2729. Check if The Number is Fascinating
+class Solution:
+    def isFascinating(self, n: int) -> bool:
+        answer = []
+
+        def helper(x):
+            while x > 0:
+                answer.append(x%10)
+                x = x // 10 
+        
+        for i in range(1,4):
+            helper(n*i)
+        
+        if len(answer) != 9:
+            return False
+        else:
+            answer = sorted(answer)
+            for i in range(len(answer)):
+                if i+1 != answer[i]:
+                    return False
+        return True
