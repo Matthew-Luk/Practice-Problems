@@ -4933,3 +4933,14 @@ class Solution:
                 if i+1 != answer[i]:
                     return False
         return True
+
+# 2810. Faulty Keyboard
+class Solution:
+    def finalString(self, s: str) -> str:
+        answer = ""
+        for i in s:
+            if i == "i":
+                answer = answer[::-1]
+            else:
+                answer += i
+        return answer
