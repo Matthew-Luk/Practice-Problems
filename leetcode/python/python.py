@@ -4944,3 +4944,17 @@ class Solution:
             else:
                 answer += i
         return answer
+
+# 599. Minimum Index Sum of Two Lists
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        answer = []
+        map = {}
+        for i in range(len(list1)):
+            if list1[i] in list2:
+                map[list1[i]] = i + list2.index(list1[i])
+        smallest = min(map.values())
+        for k,v in map.items():
+            if v == smallest:
+                answer.append(k)
+        return answer
