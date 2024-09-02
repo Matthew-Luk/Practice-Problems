@@ -4958,3 +4958,36 @@ class Solution:
             if v == smallest:
                 answer.append(k)
         return answer
+
+# 1556. Thousand Separator
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        if n < 1000:
+            return str(n)
+        n = str(n)[::-1]
+        answer = []
+        temp = ""
+        for i in range(len(n)):
+            temp += n[i]
+            if len(temp) == 3:
+                answer.append(temp)
+                temp = ""
+        if temp != "":
+            answer.append(temp)
+        answer = ".".join(answer)[::-1]
+        return answer
+
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        answer = ""
+        count = 0
+        n = str(n)
+        if int(n) < 1000:
+            return n
+        for i in range(len(n)-1,-1,-1):
+            if count == 3:
+                answer += "."
+                count = 0
+            answer += n[i]
+            count += 1
+        return answer[::-1]
