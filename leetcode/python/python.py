@@ -4991,3 +4991,31 @@ class Solution:
             answer += n[i]
             count += 1
         return answer[::-1]
+
+# 674. Longest Continuous Increasing Subsequence
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        answer = []
+        count = 1
+        for i in range(len(nums)-1):
+            if nums[i+1] > nums[i]:
+                count += 1
+            else:
+                count = 1
+            answer.append(count)
+        if answer == []:
+            return 1
+        return max(answer)
+
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        answer = 1
+        count = 1
+        for i in range(len(nums)-1):
+            if nums[i+1] > nums[i]:
+                count += 1
+            else:
+                count = 1
+            if count > answer:
+                answer = count
+        return answer
