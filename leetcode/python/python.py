@@ -5019,3 +5019,14 @@ class Solution:
             if count > answer:
                 answer = count
         return answer
+
+# 796. Rotate String
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        k = len(goal)
+        while k > 0:
+            s = s[1:] + s[0]
+            if s == goal:
+                return True
+            k -= 1
+        return False
