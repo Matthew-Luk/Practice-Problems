@@ -5066,3 +5066,15 @@ class Solution:
         for v in map.values():
             answer += factorial(v-1)
         return answer
+
+# 693. Binary Number with Alternating Bits
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        bin = []
+        while n > 0:
+            bin.append(n%2)
+            n = n // 2
+        for i in range(len(bin)-1):
+            if bin[i] == bin[i+1]:
+                return False
+        return True
