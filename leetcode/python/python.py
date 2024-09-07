@@ -5030,3 +5030,39 @@ class Solution:
                 return True
             k -= 1
         return False
+
+# 1128. Number of Equivalent Domino Pairs
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        def factorial(x):
+            fact = 0
+            x = x - 1
+            while x > 0:
+                fact += x
+                x -= 1
+            return fact
+
+        answer = 0
+        map = {}
+        for i in range(len(dominoes)):
+            temp = (min(dominoes[i]), max(dominoes[i]))
+            map[temp] = map.get(temp,0) + 1
+        for v in map.values():
+            answer += factorial(v)
+        return answer
+
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        def factorial(x):
+            if x <= 1:
+                return x
+            return x + factorial(x-1)
+
+        answer = 0
+        map = {}
+        for i in range(len(dominoes)):
+            temp = (min(dominoes[i]), max(dominoes[i]))
+            map[temp] = map.get(temp,0) + 1
+        for v in map.values():
+            answer += factorial(v-1)
+        return answer
