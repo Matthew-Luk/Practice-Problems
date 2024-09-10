@@ -1,4 +1,4 @@
-from typing import List, Optional, ListNode, Node
+from typing import List, Optional, ListNode, Node, guess
 from collections import defaultdict
 from heapq import heapify, heappush, heappop
 import math
@@ -5077,4 +5077,33 @@ class Solution:
         for i in range(len(bin)-1):
             if bin[i] == bin[i+1]:
                 return False
+        return True
+
+# 551. Student Attendance Record I
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        abscence = 0
+        count = 0
+        for i in range(len(s)):
+            if s[i] == "A":
+                abscence += 1
+                count = 0
+            elif s[i] == "L":
+                count += 1
+                if count == 3:
+                    return False
+            else:
+                count = 0
+        if abscence > 1:
+            return False
+        return True
+
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        abscence = 0
+        for i in range(len(s)):
+            if s[i] == "A":
+                abscence += 1
+        if abscence > 1 or "LLL" in s:
+            return False
         return True
