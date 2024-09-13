@@ -5117,3 +5117,11 @@ class Solution:
             if word[0].isupper() and word[1:].islower():
                 return True
         return False
+
+# 521. Longest Uncommon Subsequence I
+class Solution:
+    def findLUSlength(self, a: str, b: str) -> int:
+        if a == b:
+            return -1
+        else:
+            return max(len(a), len(b))
