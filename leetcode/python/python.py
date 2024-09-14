@@ -5125,3 +5125,22 @@ class Solution:
             return -1
         else:
             return max(len(a), len(b))
+
+# 504. Base 7
+class Solution:
+    def convertToBase7(self, num: int) -> str:
+        answer = 0
+        bin = []
+        neg = False
+        if num < 0:
+            num = num * -1
+            neg = True
+        while num > 0:
+            bin.append(num%7)
+            num = num // 7
+        bin = bin[::-1]
+        for i in range(len(bin)):
+            answer += bin[i]*10**(len(bin)-i-1)
+        if neg:
+            answer = answer * -1
+        return str(answer)
