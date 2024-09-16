@@ -2,6 +2,7 @@ from typing import List, Optional, ListNode, Node, guess
 from collections import defaultdict
 from heapq import heapify, heappush, heappop
 import math
+import copy
 
 # 1929. Concatenation of Array
 class Solution:
@@ -5144,3 +5145,15 @@ class Solution:
         if neg:
             answer = answer * -1
         return str(answer)
+
+# 495. Teemo Attacking
+class Solution:
+    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+        answer = 0
+        for i in range(len(timeSeries)-1):
+            if timeSeries[i+1] - timeSeries[i] < duration:
+                answer += timeSeries[i+1] - timeSeries[i]
+            else:
+                answer += duration
+        answer += duration
+        return answer
