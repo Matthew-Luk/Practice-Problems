@@ -5157,3 +5157,20 @@ class Solution:
                 answer += duration
         answer += duration
         return answer
+
+# 575. Distribute Candies
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        map = {}
+        for i in candyType:
+            map[i] = map.get(i,0) + 1
+        if len(map) < len(candyType) / 2:
+            return len(map)
+        return len(candyType) // 2
+
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        temp = set(candyType)
+        if len(temp) < len(candyType) / 2:
+            return len(temp)
+        return len(candyType) // 2
