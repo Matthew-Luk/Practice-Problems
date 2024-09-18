@@ -5174,3 +5174,47 @@ class Solution:
         if len(temp) < len(candyType) / 2:
             return len(temp)
         return len(candyType) // 2
+
+# 485. Max Consecutive Ones
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        answer = [0]
+        count = 0
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                count += 1
+            else:
+                answer.append(count)
+                count = 0
+        if count != 0:
+            answer.append(count)
+        return max(answer)
+
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        answer = 0
+        count = 0
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                count += 1
+            else:
+                if count > answer:
+                    answer = count
+                count = 0
+        if count > answer:
+            answer = count
+        return answer
+
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        answer = 0
+        count = 0
+        nums.append(0)
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                count += 1
+            else:
+                if count > answer:
+                    answer = count
+                count = 0
+        return answer
