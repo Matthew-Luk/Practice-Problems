@@ -5218,3 +5218,13 @@ class Solution:
                     answer = count
                 count = 0
         return answer
+
+# 492. Construct the Rectangle
+class Solution:
+    def constructRectangle(self, area: int) -> List[int]:
+        answers = []
+        x = int(area**(1/2))
+        for i in range(1,x+1):
+            if area % i == 0:
+                answers.append([area//i,i])
+        return answers[-1]
