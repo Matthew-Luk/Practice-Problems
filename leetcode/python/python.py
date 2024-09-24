@@ -5228,3 +5228,16 @@ class Solution:
             if area % i == 0:
                 answers.append([area//i,i])
         return answers[-1]
+
+# 367. Valid Perfect Square
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        x = num**(1/2)
+        if x % 1 == 0:
+            return True
+        return False
+
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        x = num**(1/2)
+        return x == int(x)
