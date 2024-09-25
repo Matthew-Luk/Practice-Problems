@@ -5241,3 +5241,21 @@ class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         x = num**(1/2)
         return x == int(x)
+
+# 278. First Bad Version
+# The isBadVersion API is already defined for you.
+# def isBadVersion(version: int) -> bool:
+
+# class Solution:
+#     def firstBadVersion(self, n: int) -> int:
+#         l = 0
+#         r = n
+#         while l <= r:
+#             mid = ((r-l) // 2) + l
+#             if isBadVersion(mid) == False:
+#                 l = mid
+#             elif isBadVersion(mid) == True:
+#                 r = mid
+#             if l == r-1:
+#                 if isBadVersion(r) == True and isBadVersion(l) == False:
+#                     return r
