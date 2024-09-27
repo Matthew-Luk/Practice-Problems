@@ -5294,3 +5294,20 @@ class MyQueue:
 # param_2 = obj.pop()
 # param_3 = obj.peek()
 # param_4 = obj.empty()
+
+# 228. Summary Ranges
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        answer = []
+        temp = []
+        if nums != []:
+            nums.append(nums[0])
+        for i in range(len(nums)-1):
+            temp.append(nums[i])
+            if nums[i+1] != nums[i] + 1:
+                if len(temp) == 1:
+                    answer.append(str(temp[0]))
+                else:
+                    answer.append(str(temp[0]) + "->" + str(temp[-1]))
+                temp = []
+        return answer
