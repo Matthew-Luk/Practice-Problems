@@ -5311,3 +5311,13 @@ class Solution:
                     answer.append(str(temp[0]) + "->" + str(temp[-1]))
                 temp = []
         return answer
+
+# 2824. Count Pairs Whose Sum is Less than Target
+class Solution:
+    def countPairs(self, nums: List[int], target: int) -> int:
+        answer = 0
+        for i in range(len(nums)-1):
+            for j in range(i+1,len(nums)):
+                if nums[i] + nums[j] < target:
+                    answer += 1
+        return answer
