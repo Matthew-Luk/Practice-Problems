@@ -5321,3 +5321,11 @@ class Solution:
                 if nums[i] + nums[j] < target:
                     answer += 1
         return answer
+
+# 2828. Check if a String Is an Acronym of Words
+class Solution:
+    def isAcronym(self, words: List[str], s: str) -> bool:
+        answer = ""
+        for i in words:
+            answer += i[0]
+        return answer == s
