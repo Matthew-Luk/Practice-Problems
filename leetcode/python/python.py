@@ -5329,3 +5329,13 @@ class Solution:
         for i in words:
             answer += i[0]
         return answer == s
+
+# 2148. Count Elements With Strictly Smaller and Greater Elements
+class Solution:
+    def countElements(self, nums: List[int]) -> int:
+        answer = 0
+        nums = sorted(nums)
+        for i in nums:
+            if i != nums[0] and i != nums[-1]:
+                answer += 1
+        return answer
