@@ -5339,3 +5339,16 @@ class Solution:
             if i != nums[0] and i != nums[-1]:
                 answer += 1
         return answer
+
+# 1854. Maximum Population Year
+class Solution:
+    def maximumPopulation(self, logs: List[List[int]]) -> int:
+        map = {}
+        for i in logs:
+            for j in range(i[0],i[1]):
+                map[j] = map.get(j,0)+1
+        x = max(map.values())
+        arr = sorted(map.keys())
+        for i in arr:
+            if map[i] == x:
+                return i
