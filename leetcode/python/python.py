@@ -5352,3 +5352,17 @@ class Solution:
         for i in arr:
             if map[i] == x:
                 return i
+
+# 1629. Slowest Key
+class Solution:
+    def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
+        answer = releaseTimes[0]
+        key = keysPressed[0]
+        for i in range(1,len(releaseTimes)):
+            if releaseTimes[i] - releaseTimes[i-1] > answer:
+                answer = releaseTimes[i] - releaseTimes[i-1]
+                key = keysPressed[i]
+            elif releaseTimes[i] - releaseTimes[i-1] == answer:
+                if ord(keysPressed[i]) > ord(key):
+                    key = keysPressed[i]
+        return key
