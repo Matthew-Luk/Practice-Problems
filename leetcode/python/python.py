@@ -5366,3 +5366,37 @@ class Solution:
                 if ord(keysPressed[i]) > ord(key):
                     key = keysPressed[i]
         return key
+
+# 2833. Furthest Point From Origin
+class Solution:
+    def furthestDistanceFromOrigin(self, moves: str) -> int:
+        L = moves.replace("_","L")
+        R = moves.replace("_","R")
+        LCount, RCount = 0, 0
+        for i in range(len(L)):
+            if L[i] == "L":
+                LCount -= 1
+            else:
+                LCount += 1
+        for i in range(len(R)):
+            if R[i] == "L":
+                RCount -= 1
+            else:
+                RCount += 1
+        return max(abs(LCount),abs(RCount))
+
+class Solution:
+    def furthestDistanceFromOrigin(self, moves: str) -> int:
+        def count(s):
+            count = 0
+            for i in range(len(s)):
+                if s[i] == "L":
+                    count -= 1
+                else:
+                    count += 1
+            return abs(count)
+
+        L = moves.replace("_","L")
+        R = moves.replace("_","R")
+
+        return max(count(L), count(R))
