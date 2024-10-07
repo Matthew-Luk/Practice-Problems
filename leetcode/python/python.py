@@ -5400,3 +5400,17 @@ class Solution:
         R = moves.replace("_","R")
 
         return max(count(L), count(R))
+
+# 2815. Max Pair Sum in an Array
+class Solution:
+    def maxSum(self, nums: List[int]) -> int:
+        def MaxDigit(x):
+            return max([int(i) for i in str(x)])
+
+        answer = -1
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if MaxDigit(nums[i]) == MaxDigit(nums[j]):
+                    if nums[i] + nums[j] > answer:
+                        answer = nums[i] + nums[j]
+        return answer
