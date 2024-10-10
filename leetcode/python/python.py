@@ -5414,3 +5414,18 @@ class Solution:
                     if nums[i] + nums[j] > answer:
                         answer = nums[i] + nums[j]
         return answer
+
+# 2239. Find Closest Number to Zero
+class Solution:
+    def findClosestNumber(self, nums: List[int]) -> int:
+        answer = float("inf")
+        index = 0
+        for i in range(len(nums)):
+            x = abs(nums[i])
+            if x < answer:
+                answer = x
+                index = i
+            elif x == answer:
+                if nums[i] > nums[index]:
+                    index = i
+        return nums[index]
