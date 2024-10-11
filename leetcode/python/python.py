@@ -5429,3 +5429,17 @@ class Solution:
                 if nums[i] > nums[index]:
                     index = i
         return nums[index]
+
+# 1790. Check if One String Swap Can Make Strings Equal
+class Solution:
+    def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        if s1 == s2:
+            return True
+        index = []
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                index.append(i)
+        if len(index) == 2:
+            if s1[index[0]] == s2[index[1]] and s1[index[1]] == s2[index[0]]:
+                return True
+        return False
