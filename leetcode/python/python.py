@@ -5443,3 +5443,20 @@ class Solution:
             if s1[index[0]] == s2[index[1]] and s1[index[1]] == s2[index[0]]:
                 return True
         return False
+
+# 645. Set Mismatch
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        dupe, missing = 0, 0
+        seen = set()
+        for i in range(len(nums)):
+            if nums[i] not in seen:
+                seen.add(nums[i])
+            else:
+                dupe = nums[i]
+        for i in range(1,max(nums)+1):
+            if i not in seen:
+                missing = i
+        if missing == 0:
+            missing = max(nums)+1
+        return [dupe, missing]
