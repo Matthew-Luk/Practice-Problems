@@ -5460,3 +5460,26 @@ class Solution:
         if missing == 0:
             missing = max(nums)+1
         return [dupe, missing]
+
+# 2437. Number of Valid Clock Times
+class Solution:
+    def countTime(self, time: str) -> int:
+        answer = 1
+        if time[0] == "?" and time[1] == "?":
+            answer *= 24
+        else:
+            if time[0] == "?":
+                if int(time[1]) <= 3:
+                    answer *= 3
+                else:
+                    answer *= 2
+            if time[1] == "?":
+                if time[0] == "0" or time[0] == "1":
+                    answer *= 10
+                else:
+                    answer *= 4
+        if time[3] == "?":
+            answer *= 6
+        if time[4] == "?":
+            answer *= 10
+        return answer
