@@ -5512,3 +5512,12 @@ class Solution:
             else:
                 answer += time[i]
         return answer
+
+# 2806. Account Balance After Rounded Purchase
+class Solution:
+    def accountBalanceAfterPurchase(self, purchaseAmount: int) -> int:
+        if purchaseAmount % 10 <= 4:
+            diff = purchaseAmount - (purchaseAmount % 10)
+        else:
+            diff = purchaseAmount + (10 - purchaseAmount % 10)
+        return 100 - diff
