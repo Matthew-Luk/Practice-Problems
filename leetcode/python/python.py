@@ -5483,3 +5483,32 @@ class Solution:
         if time[4] == "?":
             answer *= 10
         return answer
+
+# 1736. Latest Time by Replacing Hidden Digits
+class Solution:
+    def maximumTime(self, time: str) -> str:
+        answer = ""
+        flag = False
+        for i in range(len(time)):
+            if time[i] == "?":
+                if flag == False:
+                    if time[0] == "?" and time[1] == "?":
+                        flag = True
+                        answer += "23"
+                    elif i == 0:
+                        if int(time[1]) <= 3:
+                            answer += "2"
+                        else:
+                            answer += "1"
+                    elif i == 1:
+                        if int(time[0]) <= 1:
+                            answer += "9"
+                        else:
+                            answer += "3"
+                if i == 3:
+                    answer += "5"
+                if i == 4:
+                    answer += "9"
+            else:
+                answer += time[i]
+        return answer
