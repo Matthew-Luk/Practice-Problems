@@ -5521,3 +5521,18 @@ class Solution:
         else:
             diff = purchaseAmount + (10 - purchaseAmount % 10)
         return 100 - diff
+
+# 2605. Form Smallest Number From Two Digit Arrays
+class Solution:
+    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+        digit1 = min(nums1)
+        digit2 = min(nums2)
+        if digit2 == digit1:
+            return digit1
+        else:
+            temp = min(digit1,digit2) * 10 + max(digit1,digit2)
+            nums1 = sorted(nums1)
+            for i in nums1:
+                if i in nums2 and i < temp:
+                    return i
+            return temp
