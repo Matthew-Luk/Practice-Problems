@@ -5545,3 +5545,34 @@ class Solution:
         elif n == 1:
             return 0
         return n
+
+# 2210. Count Hills and Valleys in an Array
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        def removeDuplicates(arr):
+            newArr = [arr[0]]
+            for i in range(1,len(arr)):
+                if arr[i] != arr[i-1]:
+                    newArr.append(arr[i])
+            return newArr
+        
+        nums = removeDuplicates(nums)
+        answer = 0
+        for i in range(1,len(nums)-1):
+            if nums[i] > nums[i-1] and nums[i] > nums[i+1]:
+                answer += 1
+            elif nums[i] < nums[i-1] and nums[i] < nums[i+1]:
+                answer += 1
+        return answer
+
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        answer = 0
+        for i in range(1,len(nums)-1):
+            if nums[i] == nums[i+1]:
+                nums[i] = nums[i-1]
+            elif nums[i] > nums[i-1] and nums[i] > nums[i+1]:
+                answer += 1
+            elif nums[i] < nums[i-1] and nums[i] < nums[i+1]:
+                answer += 1
+        return answer
